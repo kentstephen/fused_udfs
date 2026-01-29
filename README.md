@@ -16,7 +16,7 @@ Includes:
 
 - Any tokens or API keys referenced in these UDFs won't work
 - Data stored in my personal Fused object storage won't be accessible
-- Be careful with the Zarr UDFs - they may reference unavailable data sources
+- Be careful with the Zarr UDFs - they can be compute intensive
 
 ## Folders
 
