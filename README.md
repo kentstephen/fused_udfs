@@ -1,9 +1,16 @@
-# User Defined Functions (UDFs) Made in the [Fused.io](https://fused.io) Platform
+# Fused.io UDFs Collection                                                    
+                                                                            
+700+ User Defined Functions for [Fused.io](https://fused.io) - a platform for 
+serverless geospatial compute and analysis.
 
-- Overture Maps
-- Satellite Imagery
-- H3
-- Raster to Vector
+These are UDFs I have worked on since April of 2024.
+
+Includes:                                                             
+- Overture Maps building footprints                                           
+- Sentinel satellite imagery processing                                       
+- H3 hexagon aggregations                                                     
+- DEM terrain analysis                                                        
+                                                                            
 
 ## Folders
 
