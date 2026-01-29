@@ -1,0 +1,65 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "kontur_usa_r_6_file",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 8,
+                "getHexagon": "@@=properties.hex",
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 7,
+                "getFillColor": "@@=[properties.pop*5, properties.pop*25, properties.pop*3 - 5]"
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "kontur_usa_r_6_file",
+            "fused:name": "kontur_usa_r_6_file",
+            "fused:id": "02569b0b-c136-4467-9f59-696ceec7d385"
+          },
+          "source": "kontur_usa_r_6_file.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

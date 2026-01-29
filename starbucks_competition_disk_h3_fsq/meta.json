@@ -1,0 +1,68 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "starbucks_competition_disk_h3_fsq",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getElevation": "@@=properties.competition_cnt*70",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "competition_cnt",
+                  "domain": [
+                    0,
+                    18
+                  ],
+                  "colors": "OrYel",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "starbucks_competition_disk_h3_fsq",
+            "fused:name": "starbucks_competition_disk_h3_fsq"
+          },
+          "source": "starbucks_competition_disk_h3_fsq.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

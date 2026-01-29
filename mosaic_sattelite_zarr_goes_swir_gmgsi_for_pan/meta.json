@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "mosaic_sattelite_zarr_goes_swir_gmgsi_for_pan",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "mosaic_sattelite_zarr_goes_swir_gmgsi_for_pan",
+            "fused:slug": "mosaic_sattelite_zarr_goes_swir_gmgsi_for_pan",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 34.61075340181457,
+              "longitude": -71.74362061020291,
+              "zoom": 2.143123537971085,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:userCreatedShareToken": "fsh_4wVAcWfV6vXhMnpFeh7tX5",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Teal",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:id": "bbbea51f-42d6-4ce0-990e-897e666c83d0"
+          },
+          "source": "mosaic_sattelite_zarr_goes_swir_gmgsi_for_pan.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

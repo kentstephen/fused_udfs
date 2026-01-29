@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_neat_h3_road_density_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 0.8,
+                "getHexagon": "@@=properties.cell_id",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "elevation",
+                  "present": "@@=properties.elevation",
+                  "absent": 0
+                },
+                "elevationScale": 0.1,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 228]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "overture_neat_h3_road_density_2",
+            "fused:name": "overture_neat_h3_road_density_2"
+          },
+          "source": "overture_neat_h3_road_density_2.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3__diff_landsat_for_change_in_ndvi",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "h3__diff_landsat_for_change_in_ndvi",
+            "fused:slug": "h3__diff_landsat_for_change_in_ndvi",
+            "fused:userCreatedShareToken": "fsh_6oZ6ApBGUmJ7ko9JusACOj",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 45.30233589534034,
+              "longitude": 42.65701858104094,
+              "zoom": 7.610905237667605,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 0.24,
+                "coverage": 0.661,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFllColor": "@@=[180 - properties.pct_change_ndvi * 10, 140 - properties.pct_change_ndvi * 6, 100 + properties.pct_change_ndvi * 8]",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "pct_change_evi",
+                  "domain": [
+                    -15,
+                    0,
+                    15
+                  ],
+                  "steps": 50,
+                  "colors": "Earth",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "75e14845-23f3-4229-b5f2-9ac1e585551d"
+          },
+          "source": "h3__diff_landsat_for_change_in_ndvi.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

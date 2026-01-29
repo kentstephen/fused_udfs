@@ -1,0 +1,105 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Five_Minute_Walk_Bushwick",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "place_score",
+                  "present": "@@=properties.place_score",
+                  "absent": 1
+                },
+                "elevationScale": 30,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "place_score",
+                  "domain": [
+                    0,
+                    25
+                  ],
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "Five_Minute_Walk_Bushwick",
+            "fused:name": "Five_Minute_Walk_Bushwick",
+            "fused:defaultParameters": [
+              {
+                "parameter": "place_type",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "Coffee Shop",
+                  "Restaurant",
+                  "Bar",
+                  "Pharmacy",
+                  "Grocery Store"
+                ]
+              }
+            ],
+            "fused:description": "## Overview\n\nVisualize Overture Buildings Near Four Square Places with Isochrones and H3 Bushwick, Brooklyn.",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/coffeeshops.png",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.70057640815768,
+              "longitude": -73.91633930617161,
+              "zoom": 13.447997939170877,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:id": "221a412b-0ea9-4a26-850a-914f5c223a56",
+            "collectionMeta": {
+              "join_pois_with_overture_copy": {
+                "position": 6
+              }
+            }
+          },
+          "source": "Five_Minute_Walk_Bushwick.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

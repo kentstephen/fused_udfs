@@ -1,0 +1,64 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_ndvi_fiboa_netherlands_2020_2024",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    0.9,
+                    0.3
+                  ],
+                  "steps": 5,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "h3_ndvi_fiboa_netherlands_2020_2024",
+            "fused:name": "h3_ndvi_fiboa_netherlands_2020_2024",
+            "fused:id": "4ca5fcc4-b631-494d-888f-992d7409041d"
+          },
+          "source": "h3_ndvi_fiboa_netherlands_2020_2024.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

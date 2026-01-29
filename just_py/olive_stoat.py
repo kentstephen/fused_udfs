@@ -1,0 +1,1 @@
+{"type":"value-output","fieldName":"metric","label":"","format":"text","fullSize":true,"value":"--"}

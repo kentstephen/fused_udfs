@@ -1,0 +1,84 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Hospital_Isochrones_Population_H3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "population",
+                  "present": "@@=properties.population",
+                  "absent": 1
+                },
+                "elevationScale": 6,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 250]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "Hospital_Isochrones_Population_H3",
+            "fused:name": "Hospital_Isochrones_Population_H3",
+            "fused:id": "9d678b45-1ad2-43f2-a116-776d69a40711"
+          },
+          "source": "Hospital_Isochrones_Population_H3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

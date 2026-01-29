@@ -1,0 +1,100 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_fire_probability_zarr",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 1,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "burn_prob",
+                  "domain": [
+                    0.001,
+                    0.1,
+                    0.7
+                  ],
+                  "steps": 50,
+                  "colors": "Peach",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  184,
+                  184,
+                  184
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "metric",
+                  "present": "@@=properties.metric",
+                  "absent": 1
+                },
+                "elevationScale": 2.5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "h3_fire_probability_zarr",
+            "fused:name": "h3_fire_probability_zarr",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 0.3171528770341913,
+              "longitude": -78.77450183522531,
+              "zoom": 10.926813117879666,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:assetUrl": "fused_uploaded_preview",
+            "fused:description": "This is fork of: https://github.com/fusedio/udfs/tree/main/community/sina/DEM_Tile_Hexify",
+            "fused:tags": [
+              {
+                "id": "dem",
+                "label": "dem"
+              },
+              {
+                "id": "h3",
+                "label": "h3",
+                "isCreatable": true
+              },
+              {
+                "id": "aws",
+                "label": "aws"
+              }
+            ],
+            "fused:id": "6f7c9877-450d-4cd8-8e10-ec40b22a1d15",
+            "fused:userCreatedShareToken": "fsh_6ezz1sHPZ1yodNY1PVDmbk"
+          },
+          "source": "h3_fire_probability_zarr.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

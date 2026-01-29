@@ -1,0 +1,63 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dunkin_metro_disk_h3_fsq_2_with_show_disk_",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 1,
+                "coverage": 2,
+                "lineWidthMinPixels": 5,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": [
+                  255,
+                  165,
+                  0
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "competition_cnt",
+                  "present": "@@=properties.competition_cnt",
+                  "absent": 1
+                },
+                "elevationScale": 200
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "dunkin_metro_disk_h3_fsq_2_with_show_disk_",
+            "fused:name": "dunkin_metro_disk_h3_fsq_2_with_show_disk_"
+          },
+          "source": "dunkin_metro_disk_h3_fsq_2_with_show_disk_.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "goes_pm25_source_coop",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "goes_pm25_source_coop",
+            "fused:slug": "goes_pm25_source_coop",
+            "fused:userCreatedShareToken": "fsh_546980B6zHTqxKklUMdNcK",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "RedOr",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:id": "7b6ea30c-85b5-4314-8803-e77f61ab5592"
+          },
+          "source": "goes_pm25_source_coop.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

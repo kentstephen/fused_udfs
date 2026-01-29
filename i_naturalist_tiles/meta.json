@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "i_naturalist_tiles",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": false
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": false,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "DarkMint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "i_naturalist_tiles",
+            "fused:name": "i_naturalist_tiles",
+            "collectionMeta": {
+              "walking_network": {
+                "position": 5
+              }
+            },
+            "fused:userCreatedShareToken": "fsh_44Oli4PnJgjrT7JwSUD6NZ",
+            "fused:id": "f252b82e-64f6-4c48-9568-72f248467f64"
+          },
+          "source": "i_naturalist_tiles.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

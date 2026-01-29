@@ -1,0 +1,84 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "hospitals_NE_h3_isochrones_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 15,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 250]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "hospitals_NE_h3_isochrones_2",
+            "fused:name": "hospitals_NE_h3_isochrones_2",
+            "fused:id": "d68805f1-f800-4a2a-9dbc-a658509930f1"
+          },
+          "source": "hospitals_NE_h3_isochrones_2.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

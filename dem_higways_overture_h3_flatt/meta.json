@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_higways_overture_h3_flatt",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    500,
+                    1500
+                  ],
+                  "steps": 10,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_higways_overture_h3_flatt",
+            "fused:name": "dem_higways_overture_h3_flatt",
+            "collectionMeta": {
+              "walking_network": {
+                "position": 6
+              }
+            },
+            "fused:id": "833cfcc8-0303-4fc0-8302-93b0a78313dc"
+          },
+          "source": "dem_higways_overture_h3_flatt.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

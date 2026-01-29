@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ER_Locations_New_England_h3_point_match",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1.5,
+                "pointRadiusMinPixels": 3,
+                "pointRadiusMaxPixels": 10,
+                "getLineColor": [
+                  255,
+                  0,
+                  0
+                ],
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  240
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "ER_Locations_New_England_h3_point_match",
+            "fused:name": "ER_Locations_New_England_h3_point_match",
+            "fused:id": "b09a922f-7356-4a44-8d5c-1b4d4a21ff3b",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            }
+          },
+          "source": "ER_Locations_New_England_h3_point_match.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

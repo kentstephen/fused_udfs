@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "tile_fused_census_hex_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "tile_fused_census_hex_2",
+            "fused:slug": "tile_fused_census_hex_2",
+            "fused:userCreatedShareToken": "fsh_1FIkMRXsTjZblzGOrsf09z",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 10,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "POP20",
+                  "domain": [
+                    1000,
+                    50,
+                    5
+                  ],
+                  "steps": 50,
+                  "colors": "Purp",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  184,
+                  184,
+                  184
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "POP20",
+                  "present": "@@=properties.value",
+                  "absent": 1
+                },
+                "elevationScale": 10
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "e0b2b15d-5707-4fbf-8e74-620e85f9c5f4"
+          },
+          "source": "tile_fused_census_hex_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

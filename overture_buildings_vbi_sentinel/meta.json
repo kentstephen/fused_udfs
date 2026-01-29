@@ -1,0 +1,85 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_vbi_sentinel",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "opacity": 5,
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 0.61,
+                "pointRadiusMinPixels": 1,
+                "getFllColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ],
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    4.5,
+                    6
+                  ],
+                  "steps": 7,
+                  "colors": "Earth",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getElevation": "@@=properties.height",
+                "elevationScale": 7
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_buildings_vbi_sentinel",
+            "fused:name": "overture_buildings_vbi_sentinel",
+            "fused:id": "60c0d9a7-fcd7-4a1e-952f-18645e8bed5a",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            }
+          },
+          "source": "overture_buildings_vbi_sentinel.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

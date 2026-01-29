@@ -1,0 +1,74 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_grid_parks_radiate",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 8,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "cnt",
+                  "present": "@@=properties.cnt",
+                  "absent": 1
+                },
+                "elevationScale": 0.004,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 200]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "h3_grid_parks_radiate",
+            "fused:name": "h3_grid_parks_radiate",
+            "fused:id": "b0598bc2-7796-403f-95cd-8a1a1c366baf"
+          },
+          "source": "h3_grid_parks_radiate.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

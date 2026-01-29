@@ -1,0 +1,62 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "twenty_4_and_5_addresses",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 0.01,
+                "pointRadiusMinPixels": 0.17,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "twenty_4_and_5_addresses",
+            "fused:name": "twenty_4_and_5_addresses"
+          },
+          "source": "twenty_4_and_5_addresses.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

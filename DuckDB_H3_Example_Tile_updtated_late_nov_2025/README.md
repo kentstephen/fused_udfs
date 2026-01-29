@@ -1,0 +1,21 @@
+# DuckDB_H3_Example_Tile_updtated_late_nov_2025
+
+## Overview
+
+This UDF shows how to open NYC yellow taxi trip dataset using DuckDB and aggregate the pickups using [H3-DuckDB](https://github.com/isaacbrodsky/h3-duckdb) as tiles.
+
+## External links
+
+- [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+
+## Run this in any Jupyter Notebook
+
+```python
+import fused
+
+udf = fused.load("https://github.com/fusedio/udfs/tree/main/public/DuckDB_H3_Example_Tile")
+gdf = fused.run(udf=udf, x=2412, y=3078, z=13)
+gdf
+```
+
+

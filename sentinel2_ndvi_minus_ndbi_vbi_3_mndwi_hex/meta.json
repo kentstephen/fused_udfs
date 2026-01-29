@@ -1,0 +1,136 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "sentinel2_ndvi_minus_ndbi_vbi_3_mndwi_hex",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.4,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    1,
+                    0
+                  ],
+                  "steps": 7,
+                  "colors": "Fall",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getlevation": "@@=properties.elevation",
+                "elevationScale": 20
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "sentinel2_ndvi_minus_ndbi_vbi_3_mndwi_hex",
+            "fused:name": "sentinel2_ndvi_minus_ndbi_vbi_3_mndwi_hex",
+            "fused:defaultParameters": [],
+            "fused:datasets": "Sentinel 2",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/1bafbfef94c0699222d4a19acee601b0dd6f1228/public/Sentinel_Tile_Example/",
+            "fused:gitPath": "public/Sentinel_Tile_Example",
+            "fused:gitRef": "1bafbfef94c0699222d4a19acee601b0dd6f1228",
+            "fused:gitAuthorNames": [
+              "Sina Kashuk",
+              "Tyler Erickson",
+              null,
+              "Plinio Guzman",
+              "Isaac Brodsky",
+              null,
+              "Maxime Lenormand",
+              "Suryashankar Das",
+              "Milind Soni"
+            ],
+            "fused:gitAuthorUsernames": [
+              "kashuk",
+              "tylere",
+              "charlesfused",
+              "pgzmnk",
+              "isaacbrodsky",
+              "fused-io[bot]",
+              "MaxLenormand",
+              "iamsdas",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/kashuk",
+              "https://github.com/tylere",
+              "https://github.com/charlesfused",
+              "https://github.com/pgzmnk",
+              "https://github.com/isaacbrodsky",
+              "https://github.com/apps/fused-io",
+              "https://github.com/MaxLenormand",
+              "https://github.com/iamsdas",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/92862?v=4",
+              "https://avatars.githubusercontent.com/u/148997493?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/in/834700?v=4",
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/26461855?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-04-05T14:26:45+00:00",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/1bafbfe/public/Sentinel_Tile_Example/",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:gitPullRequestBranch": "max@fused.io-patch-Fixing-min-resolution-requireme",
+            "fused:gitPullRequestLink": "https://github.com/fusedio/udfs/pull/372",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Sentinel_Tile_Example.png",
+            "fused:tags": [
+              {
+                "id": "usgs",
+                "label": "usgs"
+              },
+              {
+                "id": "hillshade",
+                "label": "hillshade"
+              }
+            ],
+            "fused:description": "### Overview [link](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\nThe [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days. This dataset represents the global Sentinel-2 archive, from 2016 to the present, processed to L2A (bottom-of-atmosphere) using Sen2Cor and converted to cloud-optimized GeoTIFF format.\n\n### External links\n* [Reference](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\n* [AWS Earth Search STAC](https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a)\n* [Microsoft Planetary Computer STAC](https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Sentinel_Tile_Example\")\narr = fused.run(udf, x=5241, y=12667, z=15)\narr\n```\n",
+            "fused:id": "19a614d0-0c9d-4554-b1a5-e86e952eb1e8"
+          },
+          "source": "sentinel2_ndvi_minus_ndbi_vbi_3_mndwi_hex.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

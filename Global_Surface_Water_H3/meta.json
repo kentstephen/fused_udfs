@@ -1,0 +1,96 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Global_Surface_Water_H3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 5,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 0.9,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.r, properties.g, properties.b]",
+                "getElevation": "@@=properties.n_pixel",
+                "elevationScale": 100
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "SunsetDark",
+                  "nullColor": [
+                    184,
+                    18,
+                    184
+                  ]
+                },
+                "getFillColor": "@@=[properties.r, properties.g, properties.b]"
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Global_Surface_Water_H3",
+            "fused:name": "Global_Surface_Water_H3",
+            "fused:gitPath": "community/plinio/Global_Surface_Water_H3",
+            "fused:gitRef": "2528576155696ad0aa24beef28643891343f2211",
+            "fused:description": "Exported from Fused UDF Workbench\n\n",
+            "fused:gitAuthorNames": [
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-04T18:26:37+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:userCreatedShareToken": "fsh_6lHjnX9dqsbiLnXwPE8BRC",
+            "fused:id": "68888bb4-4894-44da-b059-da5647e6dd3a"
+          },
+          "source": "Global_Surface_Water_H3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

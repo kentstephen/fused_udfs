@@ -1,0 +1,89 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_with_dem",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1.5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFllColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "height",
+                  "domain": [
+                    0,
+                    150
+                  ],
+                  "steps": 20,
+                  "colors": "Mint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  200,
+                  200,
+                  200,
+                  150
+                ],
+                "getFilColor": [
+                  200,
+                  250,
+                  0,
+                  300
+                ],
+                "getLineColor": [
+                  200,
+                  215,
+                  0,
+                  250
+                ],
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_with_dem",
+            "fused:name": "overture_with_dem",
+            "fused:id": "0ec43fd0-d8bf-4075-9a81-f7d2cb5f5d54"
+          },
+          "source": "overture_with_dem.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_overture_polygon_to_cells_height_duckdb_cabs",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": false,
+                "pickable": true,
+                "coverage": 1,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "height",
+                  "present": "@@=properties.height",
+                  "absent": 1
+                },
+                "elevationScale": 3,
+                "getLineColor": [
+                  0,
+                  0,
+                  0
+                ],
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "cnt",
+                  "present": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20, properties.opacity]",
+                  "absent": [
+                    184,
+                    184,
+                    184,
+                    50
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "h3_overture_polygon_to_cells_height_duckdb_cabs",
+            "fused:name": "h3_overture_polygon_to_cells_height_duckdb_cabs"
+          },
+          "source": "h3_overture_polygon_to_cells_height_duckdb_cabs.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ER_ne_gdf_file_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1.5,
+                "pointRadiusMinPixels": 3,
+                "pointRadiusMaxPixels": 10,
+                "getLineColor": [
+                  255,
+                  0,
+                  0
+                ],
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "ER_ne_gdf_file_2",
+            "fused:name": "ER_ne_gdf_file_2",
+            "fused:id": "c4f05daa-105f-4aad-a72a-60d22a7b6b01",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            }
+          },
+          "source": "ER_ne_gdf_file_2.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

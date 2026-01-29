@@ -1,0 +1,92 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "montpelier_flood_buffer_working_version",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file with DuckDB.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=cell_id",
+                "lineWidthMinPixels": 0.01,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": "@@=[cnt *10,cnt *55,cnt *10]",
+                "getElevation": "@@=cnt",
+                "elevationScale": 60
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "montpelier_flood_buffer_working_version",
+            "fused:name": "montpelier_flood_buffer_working_version",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/a0092acfef6accedc87893b1b09db28accdbf062/files/DuckDB_Parquet/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/a0092ac/files/DuckDB_Parquet/",
+            "fused:gitPath": "files/DuckDB_Parquet",
+            "fused:gitRef": "a0092acfef6accedc87893b1b09db28accdbf062",
+            "fused:filePreview": true,
+            "fused:filePreviewExtensions": [
+              "parquet",
+              "pq",
+              "gpq",
+              "geoparquet"
+            ],
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4"
+            ],
+            "fused:gitLastModified": "2024-08-16T17:01:27+00:00",
+            "fused:explorerTab": "files",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 44.26044507310897,
+              "longitude": -72.57421598431786,
+              "zoom": 12.543628965891234,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:id": "82658343-7228-41d8-bd78-ffae43178ca0"
+          },
+          "source": "montpelier_flood_buffer_working_version.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "refactored_elevation_flow_grand_canyon",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "refactored_elevation_flow_grand_canyon",
+            "fused:slug": "refactored_elevation_flow_grand_canyon",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.096333462945125,
+              "longitude": -72.09903515216375,
+              "zoom": 15.341284933178448,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "e_f",
+                  "domain": [
+                    40,
+                    550
+                  ],
+                  "steps": 30,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elev",
+                "elevationScale": 1
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "63428545-12a5-44c6-a56d-c410f3b31ea3"
+          },
+          "source": "refactored_elevation_flow_grand_canyon.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

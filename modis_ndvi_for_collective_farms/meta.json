@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "modis_ndvi_for_collective_farms",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 1,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    15400,
+                    1262
+                  ],
+                  "steps": 50,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  184,
+                  184,
+                  184
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "metric",
+                  "present": "@@=properties.metric",
+                  "absent": 1
+                },
+                "elevationScale": 2.5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "modis_ndvi_for_collective_farms",
+            "fused:name": "modis_ndvi_for_collective_farms",
+            "fused:explorerTab": "self",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/DC_AOI_Example2.png",
+            "fused:description": "Exported from Fused UDF Workbench\n\n",
+            "fused:userCreatedShareToken": "fsh_JSvmxVIAJTvikleG7l7NT",
+            "fused:id": "d67572e4-0156-48c7-81ae-b4184f2748e6"
+          },
+          "source": "modis_ndvi_for_collective_farms.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

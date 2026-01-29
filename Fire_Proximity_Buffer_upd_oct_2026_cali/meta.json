@@ -1,0 +1,119 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Fire_Proximity_Buffer_upd_oct_2026_cali",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 37.68746554783553,
+              "longitude": -96.37813163932806,
+              "zoom": 2.474716576058339,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": [
+                  255,
+                  255,
+                  0,
+                  400
+                ],
+                "getFillColor": [
+                  255,
+                  255,
+                  0,
+                  0.1
+                ]
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 0.3,
+                "coverage": 0.8,
+                "lineWidthMinPixels": 0,
+                "getHexagon": "@@=properties.h3_index",
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "TealGrn",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "colorCategories",
+                  "attr": "cluster",
+                  "domain": [
+                    0,
+                    1,
+                    2,
+                    4,
+                    5,
+                    6,
+                    7
+                  ],
+                  "colors": "Bold",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "value",
+                  "present": "@@=properties.value",
+                  "absent": 1
+                },
+                "elevationScale": 10
+              }
+            },
+            "fused:udfType": "vector_single_none",
+            "fused:slug": "Fire_Proximity_Buffer_upd_oct_2026_cali",
+            "fused:name": "Fire_Proximity_Buffer_upd_oct_2026_cali",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/chris_fire.png",
+            "fused:description": "## Fire Risk Buffer\n\nCreates a buffer around a fire polygon. The fire rating is calculated with a buffer to represent proximity to a fire from the [WFIGS Current Interagency Fire Perimeters](https://data-nifc.opendata.arcgis.com/datasets/nifc::wfigs-current-interagency-fire-perimeters/about) dataset.\n"
+          },
+          "source": "Fire_Proximity_Buffer_upd_oct_2026_cali.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

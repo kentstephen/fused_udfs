@@ -1,0 +1,81 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_10meter_tile_hex__carson_river",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 39.2741707515752,
+              "longitude": -119.5404056614627,
+              "zoom": 13.073997257128346,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pile": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    115,
+                    120.2,
+                    122,
+                    123,
+                    124,
+                    125
+                  ],
+                  "steps": 50,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_10meter_tile_hex__carson_river",
+            "fused:name": "dem_10meter_tile_hex__carson_river",
+            "fused:id": "45ceb94a-6d01-4e3f-acbf-a49104d8b056"
+          },
+          "source": "dem_10meter_tile_hex__carson_river.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

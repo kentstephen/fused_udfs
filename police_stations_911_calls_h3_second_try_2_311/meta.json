@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "police_stations_911_calls_h3_second_try_2_311",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 8,
+                "getHexagon": "@@=properties.avg_cell",
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "sqrt_ratio",
+                  "present": "@@=properties.sqrt_ratio",
+                  "absent": 1
+                },
+                "elevationScale": 20000,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 128]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "police_stations_911_calls_h3_second_try_2_311",
+            "fused:name": "police_stations_911_calls_h3_second_try_2_311",
+            "fused:id": "65918bb1-4a53-4f13-9cfa-e1a60d6cce3b"
+          },
+          "source": "police_stations_911_calls_h3_second_try_2_311.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

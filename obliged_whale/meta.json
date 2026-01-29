@@ -1,0 +1,51 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "obliged_whale",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "obliged_whale",
+            "fused:slug": "obliged_whale",
+            "fused:hasDefaultName": true,
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile"
+          },
+          "source": "obliged_whale.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

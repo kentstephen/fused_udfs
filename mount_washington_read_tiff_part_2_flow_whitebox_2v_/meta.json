@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "mount_washington_read_tiff_part_2_flow_whitebox_2v_",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "mount_washington_read_tiff_part_2_flow_whitebox_2v_",
+            "fused:slug": "mount_washington_read_tiff_part_2_flow_whitebox_2v_",
+            "fused:userCreatedShareToken": "fsh_279pGvzVhZSSzDmeSdjBTy",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Burg",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "3e0b1378-049b-48f3-8b27-6f41bc45078e"
+          },
+          "source": "mount_washington_read_tiff_part_2_flow_whitebox_2v_.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

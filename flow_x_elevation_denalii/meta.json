@@ -1,0 +1,72 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "flow_x_elevation_denalii",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "flow_x_elevation_denalii",
+            "fused:slug": "flow_x_elevation_denalii",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 62.9411845523306,
+              "longitude": -151.01164856138166,
+              "zoom": 9.182624828925727,
+              "pitch": 33.93333333333333,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "e_f",
+                  "domain": [
+                    32000,
+                    1750
+                  ],
+                  "steps": 50,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elev",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "5d11d911-d11e-4e7a-94e1-408758e2e1b4"
+          },
+          "source": "flow_x_elevation_denalii.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

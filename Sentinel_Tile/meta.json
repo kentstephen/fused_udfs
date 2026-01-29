@@ -1,0 +1,120 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Sentinel_Tile",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 2,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r * 1.5, properties.g * 1.5, properties.b * 1.5]",
+                  "absent": [
+                    255,
+                    255,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  80
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Sentinel_Tile",
+            "fused:name": "Sentinel_Tile",
+            "fused:defaultParameters": [],
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Sentinel_Tile_Example.png",
+            "fused:description": "### Overview [link](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\nThe [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days. This dataset represents the global Sentinel-2 archive, from 2016 to the present, processed to L2A (bottom-of-atmosphere) using Sen2Cor and converted to cloud-optimized GeoTIFF format.\n\n### External links\n* [Reference](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\n* [AWS Earth Search STAC](https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a)\n* [Microsoft Planetary Computer STAC](https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Sentinel_Tile_Example\")\narr = fused.run(udf, x=5241, y=12667, z=15)\narr\n```",
+            "fused:tags": [
+              {
+                "id": "10-meter",
+                "label": "10-meter"
+              },
+              {
+                "id": "aws",
+                "label": "aws"
+              },
+              {
+                "id": "pc",
+                "label": "pc"
+              },
+              {
+                "id": "bbox",
+                "label": "bbox"
+              },
+              {
+                "id": "raster",
+                "label": "raster"
+              }
+            ],
+            "fused:datasets": "Sentinel 2",
+            "fused:id": "d6057eea-5c4d-49ab-bd69-4ed85bc694fb",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/441bf2420f44c5edbe957ed2d6a03638425ac038/public/Sentinel_Tile_Example/",
+            "fused:gitPath": "public/Sentinel_Tile_Example",
+            "fused:gitRef": "441bf2420f44c5edbe957ed2d6a03638425ac038",
+            "fused:gitAuthorNames": [
+              "Sina Kashuk",
+              "Tyler Erickson",
+              null,
+              "Plinio Guzman"
+            ],
+            "fused:gitAuthorUsernames": [
+              "kashuk",
+              "tylere",
+              "charlesfused",
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/kashuk",
+              "https://github.com/tylere",
+              "https://github.com/charlesfused",
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/92862?v=4",
+              "https://avatars.githubusercontent.com/u/148997493?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2024-03-13T17:22:21+00:00",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/441bf24/public/Sentinel_Tile_Example/",
+            "fused:explorerTab": "public"
+          },
+          "source": "Sentinel_Tile.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

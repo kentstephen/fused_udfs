@@ -1,0 +1,56 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_mndwi",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getFillColor": [
+                  200,
+                  250,
+                  0
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_mndwi",
+            "fused:name": "overture_mndwi",
+            "fused:id": "f6492bc0-ec05-4b33-aab4-e625f8a7a5ee"
+          },
+          "source": "overture_mndwi.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

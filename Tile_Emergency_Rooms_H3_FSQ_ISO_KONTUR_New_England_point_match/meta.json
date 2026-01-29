@@ -1,0 +1,74 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Tile_Emergency_Rooms_H3_FSQ_ISO_KONTUR_New_England_point_match",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 13,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": "@@=[properties.cnt <= 12 ? 34 + (properties.cnt - 1) * (120 - 34) / (12 - 1) : properties.cnt <= 41 ? 120 + (properties.cnt - 12) * (200 - 120) / (41 - 12) : properties.cnt <= 245 ? 200 + (properties.cnt - 41) * (240 - 200) / (245 - 41) : 240 + (properties.cnt - 245) * (255 - 240) / (427 - 245), properties.cnt <= 12 ? 35 + (properties.cnt - 1) * (130 - 35) / (12 - 1) : properties.cnt <= 41 ? 130 + (properties.cnt - 12) * (210 - 130) / (41 - 12) : properties.cnt <= 245 ? 210 + (properties.cnt - 41) * (250 - 210) / (245 - 41) : 250 + (properties.cnt - 245) * (255 - 250) / (427 - 245), properties.cnt <= 12 ? 139 - (properties.cnt - 1) * (139 - 110) / (12 - 1) : properties.cnt <= 41 ? 110 - (properties.cnt - 12) * (110 - 90) / (41 - 12) : properties.cnt <= 245 ? 90 - (properties.cnt - 41) * (90 - 50) / (245 - 41) : 50 - (properties.cnt - 245) * (50 - 30) / (427 - 245), 255]"
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "Tile_Emergency_Rooms_H3_FSQ_ISO_KONTUR_New_England_point_match",
+            "fused:name": "Tile_Emergency_Rooms_H3_FSQ_ISO_KONTUR_New_England_point_match",
+            "fused:id": "cac45c25-9f72-490e-8b5c-074f83977a72"
+          },
+          "source": "Tile_Emergency_Rooms_H3_FSQ_ISO_KONTUR_New_England_point_match.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "nsi_country_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file with DuckDB.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "Teal",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "nsi_country_h3",
+            "fused:name": "nsi_country_h3",
+            "fused:id": "a35a8026-525d-494e-be42-4a800a5f4cc4",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/9c5c8bf14a9e8ccb9405c87247d0ac5a0afb6712/files/DuckDB_Parquet/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/9c5c8bf/files/DuckDB_Parquet/",
+            "fused:gitPath": "files/DuckDB_Parquet",
+            "fused:gitRef": "9c5c8bf14a9e8ccb9405c87247d0ac5a0afb6712",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4"
+            ],
+            "fused:gitLastModified": "2024-08-16T17:01:27+00:00",
+            "fused:explorerTab": "files",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "nsi_country_h3.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_higways_overture_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "opacity": 5,
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 5,
+                "pointRadiusMinPixels": 1,
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    200
+                  ],
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": [
+                  200,
+                  250,
+                  0,
+                  100
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_higways_overture_h3",
+            "fused:name": "dem_higways_overture_h3",
+            "fused:id": "43608ce7-1a7c-4666-bab2-6eab6765fe23",
+            "collectionMeta": {
+              "walking_network": {
+                "position": 6
+              }
+            }
+          },
+          "source": "dem_higways_overture_h3.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

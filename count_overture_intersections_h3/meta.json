@@ -1,0 +1,55 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "count_overture_intersections_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "opacity": 0.1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 0.001,
+                "getHexagon": "@@=properties.cell_id",
+                "getFillColor": "@@=[0, 0, 255 - properties.cnt * 0.1]",
+                "elevationScale": 0
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "count_overture_intersections_h3",
+            "fused:name": "count_overture_intersections_h3"
+          },
+          "source": "count_overture_intersections_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

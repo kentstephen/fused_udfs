@@ -1,0 +1,92 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DC_AOI_Example",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "BurgYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single_none",
+            "fused:slug": "DC_AOI_Example",
+            "fused:name": "DC_AOI_Example",
+            "fused:gitPath": "community/sina/DC_AOI_Example",
+            "fused:gitRef": "f4ca371ca335c1c3512a2e6d3e9253317ca5e8d0",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-31T16:50:04+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:userCreatedShareToken": "fsh_3uirIuScragFQJOve3sTZm",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/f4ca371/community/sina/DC_AOI_Example/",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/DC_AOI_Example2.png",
+            "fused:description": "Exported from Fused UDF Workbench\n\n"
+          },
+          "source": "DC_AOI_Example.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

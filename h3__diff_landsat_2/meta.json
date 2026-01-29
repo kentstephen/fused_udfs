@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3__diff_landsat_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "h3__diff_landsat_2",
+            "fused:slug": "h3__diff_landsat_2",
+            "fused:userCreatedShareToken": "fsh_1cFPI3XAG3jvJaKbWF9znN",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 0.5,
+                "coverage": 0.861,
+                "lineWidthMinPixels": 10,
+                "pointRadiusMinPixels": 10,
+                "getHexagon": "@@=properties.hex",
+                "getFllColor": "@@=[180 - properties.pct_change_ndvi * 10, 140 - properties.pct_change_ndvi * 6, 100 + properties.pct_change_ndvi * 8]",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "pct_change_ndvi",
+                  "domain": [
+                    -5,
+                    0,
+                    5
+                  ],
+                  "steps": 50,
+                  "colors": "Earth",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "6efdea79-c0ec-455d-8e99-75aed22e6156"
+          },
+          "source": "h3__diff_landsat_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,2 @@
+# fsq_places_building_volume_starbucks
+

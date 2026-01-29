@@ -1,0 +1,108 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DEM_Tile_Hexify_3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 27.732105361652867,
+              "longitude": -55.9958824893417,
+              "zoom": 2.2104491222292344,
+              "pitch": 40,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 20,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "DEM_Tile_Hexify_3",
+            "fused:name": "DEM_Tile_Hexify_3",
+            "fused:id": "81539f7e-9b92-4086-a85b-202efca9c2cc",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/495e84eda5e4ff7d7e5db949bdb562d154630887/public/DEM_Tile_Hexify/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/495e84e/public/DEM_Tile_Hexify/",
+            "fused:gitPath": "public/DEM_Tile_Hexify",
+            "fused:gitRef": "495e84eda5e4ff7d7e5db949bdb562d154630887",
+            "fused:gitAuthorNames": [
+              "Sina Kashuk",
+              "Isaac Brodsky",
+              "Suryashankar Das",
+              "Milind Soni"
+            ],
+            "fused:gitAuthorUsernames": [
+              "kashuk",
+              "isaacbrodsky",
+              "iamsdas",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/kashuk",
+              "https://github.com/isaacbrodsky",
+              "https://github.com/iamsdas",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/26461855?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-03-28T10:29:14+00:00",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/DEM_Tile_Hexify.png",
+            "fused:tags": [
+              {
+                "id": "dem",
+                "label": "dem"
+              },
+              {
+                "id": "aws",
+                "label": "aws"
+              },
+              {
+                "id": "h3",
+                "label": "h3"
+              }
+            ],
+            "fused:description": "#### Overview\nThis example demonstrates how terrain TIFF tiles can be dynamically converted into an H3 grid. The raster values are aggregated (sum or mean) for H3 hexes at a resolution dependent on the zoom level. The terrain data come from diverse global sources, including ArcticDEM funded by the NSF, Geoscience Australia, Austria\u2019s Digital Terrain Model, Canada's Open Government License, EU Copernicus data, NOAA's ETOPO1, INEGI in Mexico, New Zealand's Land Information authority, Kartverket in Norway, the UK's Environment Agency, and the U.S. Geological Survey for 3DEP and SRTM. \n\n## External links\n\n- [AWS open data](https://registry.opendata.aws/terrain-tiles/)\n- [Attribution link](https://github.com/tilezen/joerd/blob/master/docs/attribution.md)\n"
+          },
+          "source": "DEM_Tile_Hexify_3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

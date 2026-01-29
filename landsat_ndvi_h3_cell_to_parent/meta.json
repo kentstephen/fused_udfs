@@ -1,0 +1,64 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "landsat_ndvi_h3_cell_to_parent",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": false,
+                "pickable": true,
+                "opacity": 5,
+                "coverage": 1,
+                "pointRadiusMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "data",
+                  "present": "@@=properties.data",
+                  "absent": 1
+                },
+                "elevationScale": 100,
+                "getFillColor": "@@=[(1.2 - properties.data) * 255, (1.1 - properties.data) * 255, (0.7 - properties.data) * 255]"
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "landsat_ndvi_h3_cell_to_parent",
+            "fused:name": "landsat_ndvi_h3_cell_to_parent"
+          },
+          "source": "landsat_ndvi_h3_cell_to_parent.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

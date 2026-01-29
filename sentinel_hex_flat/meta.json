@@ -1,0 +1,53 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "sentinel_hex_flat",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "hexLayer": {
+                "coverage": 1,
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": false,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.agg_band1, properties.agg_band2, properties.agg_band3]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "sentinel_hex_flat",
+            "fused:name": "sentinel_hex_flat"
+          },
+          "source": "sentinel_hex_flat.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

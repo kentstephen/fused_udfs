@@ -1,0 +1,78 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DuckDB_H3_Example_Tile_updtated_late_nov_2025",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "ggetFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    200,
+                    50,
+                    5
+                  ],
+                  "steps": 50,
+                  "colors": "Earth",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "DuckDB_H3_Example_Tile_updtated_late_nov_2025",
+            "fused:name": "DuckDB_H3_Example_Tile_updtated_late_nov_2025",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.746878986881775,
+              "longitude": -73.91048113436547,
+              "zoom": 9.887562594810294,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:explorerTab": "self",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/DuckDB_H3_Example_Tile.png",
+            "fused:description": "## Overview\n\nThis UDF shows how to open NYC yellow taxi trip dataset using DuckDB and aggregate the pickups using [H3-DuckDB](https://github.com/isaacbrodsky/h3-duckdb) as tiles.\n\n## External links\n\n- [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/DuckDB_H3_Example_Tile\")\ngdf = fused.run(udf=udf, x=2412, y=3078, z=13)\ngdf\n```\n",
+            "fused:id": "51fce12d-8287-46e2-b183-3e1bc25ccc2f"
+          },
+          "source": "DuckDB_H3_Example_Tile_updtated_late_nov_2025.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "kristins_dads_farm_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 5,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1,
+                "getLineColor": [
+                  255,
+                  255,
+                  255,
+                  255
+                ],
+                "getFillColor": [
+                  255,
+                  255,
+                  255,
+                  125
+                ],
+                "getFllColor": "@@=[properties.r, properties.g, properties.b]",
+                "getElevation": "@@=properties.n_pixel",
+                "elevationScale": 0
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "kristins_dads_farm_2",
+            "fused:name": "kristins_dads_farm_2",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.357973071975216,
+              "longitude": -96.4423800457126,
+              "zoom": 12.437546129105405,
+              "pitch": 0,
+              "bearing": 0
+            }
+          },
+          "source": "kristins_dads_farm_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

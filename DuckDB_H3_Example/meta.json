@@ -1,0 +1,99 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DuckDB_H3_Example",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "opacity": 5,
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getRadius": 10,
+                "getFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]"
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "DuckDB_H3_Example",
+            "fused:name": "DuckDB_H3_Example",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.746878986881775,
+              "longitude": -73.91048113436547,
+              "zoom": 9.887562594810294,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitPath": "community/sina/DuckDB_H3_Example",
+            "fused:gitRef": "7129243d8c396f233925088768ecdb288017a7a7",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Duckdb_H3_Example.png",
+            "fused:tags": [
+              {
+                "id": "aggregation",
+                "label": "aggregation"
+              },
+              {
+                "id": "parquet",
+                "label": "parquet"
+              },
+              {
+                "id": "duckdb",
+                "label": "duckdb"
+              },
+              {
+                "id": "h3-vector",
+                "label": "h3-vector"
+              }
+            ],
+            "fused:description": "## Overview\n\nThis UDF shows how to open NYC yellow taxi trip dataset using DuckDB and aggregate the pickups using [H3-DuckDB](https://github.com/isaacbrodsky/h3-duckdb).\n\n## External links\n\n- [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/DuckDB_H3_Example\")\ngdf = fused.run(udf=udf)\ngdf\n```\n",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-08-01T08:42:50+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:userCreatedShareToken": "fsh_5aphSs0epFoiJVdwVKFzoa",
+            "fused:id": "965f2aa0-3d53-41ed-ba28-e7d57414958f"
+          },
+          "source": "DuckDB_H3_Example.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

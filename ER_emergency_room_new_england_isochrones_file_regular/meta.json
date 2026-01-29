@@ -1,0 +1,62 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ER_emergency_room_new_england_isochrones_file_regular",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    255,
+                    0,
+                    100
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  50
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "ER_emergency_room_new_england_isochrones_file_regular",
+            "fused:name": "ER_emergency_room_new_england_isochrones_file_regular"
+          },
+          "source": "ER_emergency_room_new_england_isochrones_file_regular.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

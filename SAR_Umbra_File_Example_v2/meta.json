@@ -1,0 +1,127 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "SAR_Umbra_File_Example_v2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "opacity": 0.9
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    0,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "SAR_Umbra_File_Example_v2",
+            "fused:name": "SAR_Umbra_File_Example_v2",
+            "fused:defaultParameters": [
+              {
+                "parameter": "name",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "washington",
+                  "panama_canal",
+                  "mexico_sanmartin",
+                  "colombia_taparal"
+                ]
+              }
+            ],
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 3.7587271811679184,
+              "longitude": -77.0643782565585,
+              "zoom": 12.30464161597171,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/4233f0d/community/sina/SAR_Umbra_File_Example_v2/",
+            "fused:gitPath": "community/sina/SAR_Umbra_File_Example_v2",
+            "fused:gitRef": "4233f0da555ef4614a2eb9fdb96b14d9e13194cd",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/SAR_Umbra_File_Example.png",
+            "fused:tags": [
+              {
+                "id": "sar",
+                "label": "sar"
+              },
+              {
+                "id": "raster",
+                "label": "raster"
+              },
+              {
+                "id": "high-res",
+                "label": "high-res"
+              },
+              {
+                "id": "file",
+                "label": "file"
+              }
+            ],
+            "fused:description": "# Overview\n\nUmbra satellites provide high-resolution Synthetic Aperture Radar (SAR) imagery, with up to 16-cm resolution, capable of capturing images at night and in adverse weather conditions. \n\n# External links\n\n- [stac link](https://radiantearth.github.io/stac-browser/#/external/s3.us-west-2.amazonaws.com/umbra-open-data-catalog/stac/catalog.json)\n- [aws open data](https://registry.opendata.aws/umbra-open-data/)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/SAR_Umbra_File_Example\")\narr = fused.run(udf=udf)\narr.image.plot()\n```\n",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-31T12:11:43+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:userCreatedShareToken": "fsh_2bD9FNG48puilpsncL2v4E",
+            "fused:id": "d831836f-c9ff-4ea9-939d-a16462576054"
+          },
+          "source": "SAR_Umbra_File_Example_v2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

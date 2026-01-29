@@ -1,0 +1,79 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "stoddard_usgs_1m_hex",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:userCreatedShareToken": "fsh_8G9Hs7bL4VS0QEiSFJKbU",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.08523388403515,
+              "longitude": -72.10449705329594,
+              "zoom": 12.491147855032667,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    650,
+                    500,
+                    411
+                  ],
+                  "steps": 50,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 0.52
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "stoddard_usgs_1m_hex",
+            "fused:name": "stoddard_usgs_1m_hex",
+            "fused:id": "1e8a507a-b5e7-4752-a2db-bf4c6c2623da"
+          },
+          "source": "stoddard_usgs_1m_hex.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

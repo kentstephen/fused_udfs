@@ -1,0 +1,86 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "kontur_world_8_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": false,
+                "pickable": true,
+                "opacity": 0.5,
+                "getHexagon": "@@=properties.hex",
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 7,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "pop",
+                  "domain": [
+                    0,
+                    50000
+                  ],
+                  "colors": "Geyser",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "kontur_world_8_h3",
+            "fused:name": "kontur_world_8_h3",
+            "fused:id": "55c53941-7387-4292-9e21-1498f7fcc897",
+            "collectionMeta": {
+              "competition_kontur_fsq": {
+                "position": 0
+              },
+              "walking_network": {
+                "position": 4
+              }
+            }
+          },
+          "source": "kontur_world_8_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

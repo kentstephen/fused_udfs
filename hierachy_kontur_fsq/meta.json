@@ -1,0 +1,122 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "hierachy_kontur_fsq",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "collectionMeta": {
+              "competition_kontur_fsq": {
+                "position": 1
+              }
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    50
+                  ],
+                  "colors": "Earth",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  0
+                ]
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 0.4,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "TealGrn",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    380
+                  ],
+                  "colors": "Peach",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 1
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "hierachy_kontur_fsq",
+            "fused:name": "hierachy_kontur_fsq",
+            "fused:id": "53361388-8a8a-493b-9085-daee5932cc95"
+          },
+          "source": "hierachy_kontur_fsq.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "twenty_four_twenty_five_texas",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1e-08,
+                "pointRadiusMinPixels": 5,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 25]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "twenty_four_twenty_five_texas",
+            "fused:name": "twenty_four_twenty_five_texas",
+            "fused:id": "109ab26b-9d8c-449c-a93c-b9039506068e"
+          },
+          "source": "twenty_four_twenty_five_texas.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

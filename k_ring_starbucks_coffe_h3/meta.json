@@ -1,0 +1,57 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "k_ring_starbucks_coffe_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "extruded": false,
+                "pickable": true,
+                "opacity": 10,
+                "getHexagon": "@@=properties.cell_id",
+                "lineWidthMinPixels": 0.01,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": "@@=[properties.cnt *100,properties.cnt/2+70, properties.cnt *1000]"
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "k_ring_starbucks_coffe_h3",
+            "fused:name": "k_ring_starbucks_coffe_h3",
+            "fused:id": "20063fbe-35d3-4e0f-b3e7-4982c9281a86"
+          },
+          "source": "k_ring_starbucks_coffe_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

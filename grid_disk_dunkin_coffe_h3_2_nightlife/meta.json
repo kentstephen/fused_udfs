@@ -1,0 +1,68 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "grid_disk_dunkin_coffe_h3_2_nightlife",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": false,
+                "opacity": 2,
+                "getHexagon": "@@=properties.cell_id",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 30,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 128]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "grid_disk_dunkin_coffe_h3_2_nightlife",
+            "fused:name": "grid_disk_dunkin_coffe_h3_2_nightlife"
+          },
+          "source": "grid_disk_dunkin_coffe_h3_2_nightlife.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

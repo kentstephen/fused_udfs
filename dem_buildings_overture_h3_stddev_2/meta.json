@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_buildings_overture_h3_stddev_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 20,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "opacity": 1,
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 3,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "stddev",
+                  "domain": [
+                    0,
+                    4
+                  ],
+                  "steps": 7,
+                  "colors": "Geyser",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFllColor": [
+                  200,
+                  250,
+                  0,
+                  250
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_buildings_overture_h3_stddev_2",
+            "fused:name": "dem_buildings_overture_h3_stddev_2",
+            "collectionMeta": {
+              "walking_network": {
+                "position": 6
+              }
+            }
+          },
+          "source": "dem_buildings_overture_h3_stddev_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

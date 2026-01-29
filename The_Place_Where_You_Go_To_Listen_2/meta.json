@@ -1,0 +1,74 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "The_Place_Where_You_Go_To_Listen_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "The_Place_Where_You_Go_To_Listen_2",
+            "fused:slug": "The_Place_Where_You_Go_To_Listen_2",
+            "fused:description": "# The Place Where You Go to Listen\n\nAn interactive sonification of real-time geophysical data, inspired by John Luther Adams' installation at the University of Alaska Museum of the North.\n\n## About\n\nThis web application transforms live Earth data into continuous sound and color:\n\n- **Seismic activity** from earthquakes detected by USGS\n- **Aurora intensity** from NOAA's geomagnetic monitoring\n- **Solar position** based on time of day and location\n- **Seasonal cycles** throughout the year\n\n## How It Works\n\n**Sound:**\n- Deep bass (15-40 Hz): Local earthquakes within 500km\n- Low rumble (60-120 Hz): Regional earthquakes within 2000km  \n- Mid-range tone (200-500 Hz): Largest earthquake globally\n- Harmonics (120-280 Hz): Aurora borealis/australis activity\n- Filtered noise: Solar brightness and atmospheric conditions\n\n**Visual:**\n- Single color field that shifts based on all data combined\n- Warm tones during day, cooler at night\n- Blue shifts during aurora activity\n- Red intensity during seismic events\n\n## Usage\n\n1. Select a location from the dropdown menu\n2. Click \"Listen\" to start the experience\n3. Data updates automatically every 60 seconds\n4. Click \"Stop\" to pause\n\n## Credits\n\nInspired by [John Luther Adams](https://www.johnlutheradams.net/)' \"[The Place Where You Go to Listen](https://www.uaf.edu/centennial/uaf100/ideas/the-place.php)\"\n\nData sources: USGS Earthquake API, NOAA Space Weather\n\nBuilt with Fused.io",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Mint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:gitPath": "community/stephenkentdata/The_Place_Where_You_Go_To_Listen",
+            "fused:gitRef": "42d923ea293b3957f8198dd10247ffa230472b34",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/42d923ea293b3957f8198dd10247ffa230472b34/community/stephenkentdata/The_Place_Where_You_Go_To_Listen/",
+            "fused:id": "4d4129e0-29ba-44ed-b640-f49822c411d5",
+            "fused:userCreatedShareToken": "fsh_6jz1iz7rZqI1vUkAdGUfwg"
+          },
+          "source": "The_Place_Where_You_Go_To_Listen_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "earthquakes",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "opacity": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "mag_value",
+                  "domain": [
+                    0,
+                    500
+                  ],
+                  "colors": "Sunset",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getLineColor": [
+                  250,
+                  230,
+                  180,
+                  100
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "earthquakes",
+            "fused:name": "earthquakes",
+            "fused:id": "69a59bd0-f50c-42d4-bfca-9558dfb505d8"
+          },
+          "source": "earthquakes.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

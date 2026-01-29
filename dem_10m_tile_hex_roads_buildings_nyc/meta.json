@@ -1,0 +1,76 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_10m_tile_hex_roads_buildings_nyc",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.10588058508001,
+              "longitude": -118.57170329496319,
+              "zoom": 9.03155089565184,
+              "pitch": 0,
+              "bearing": 68.2
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    -5,
+                    100
+                  ],
+                  "steps": 10,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_10m_tile_hex_roads_buildings_nyc",
+            "fused:name": "dem_10m_tile_hex_roads_buildings_nyc"
+          },
+          "source": "dem_10m_tile_hex_roads_buildings_nyc.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

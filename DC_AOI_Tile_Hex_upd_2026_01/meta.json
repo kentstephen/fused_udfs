@@ -1,0 +1,60 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DC_AOI_Tile_Hex_upd_2026_01",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 2,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.agg_band1, properties.agg_band2, properties.agg_band3]",
+                "getElevation": "@@=properties.agg_band1",
+                "elevationScale": 0
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "DC_AOI_Tile_Hex_upd_2026_01",
+            "fused:name": "DC_AOI_Tile_Hex_upd_2026_01",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 38.89339221145854,
+              "longitude": -77.02621396941808,
+              "zoom": 10.983614041519468,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:explorerTab": "self",
+            "fused:userCreatedShareToken": "fsh_553hzHM4xk3l8XNzbixpCw",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/DC_AOI_Example.png",
+            "fused:description": "Exported from Fused UDF Workbench\n\n",
+            "fused:explorerPin": "9",
+            "fused:id": "16d37e45-c0de-4d9f-88ac-ec6df9c8a42d"
+          },
+          "source": "DC_AOI_Tile_Hex_upd_2026_01.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

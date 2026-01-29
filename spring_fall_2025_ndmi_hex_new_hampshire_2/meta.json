@@ -1,0 +1,66 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "spring_fall_2025_ndmi_hex_new_hampshire_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "spring_fall_2025_ndmi_hex_new_hampshire_2",
+            "fused:slug": "spring_fall_2025_ndmi_hex_new_hampshire_2",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.5,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "ndwi_change",
+                  "domain": [
+                    -0.3,
+                    0,
+                    0.3
+                  ],
+                  "steps": 50,
+                  "colors": "Earth",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 20
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "b6fc9b80-42e6-425b-94b4-8e79c76c7796"
+          },
+          "source": "spring_fall_2025_ndmi_hex_new_hampshire_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

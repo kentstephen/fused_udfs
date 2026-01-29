@@ -1,0 +1,71 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "tree_census_h3_overture_buildings",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 1,
+                "getElevation": "@@=properties.height*3",
+                "opacity": 5,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    40
+                  ],
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "tree_census_h3_overture_buildings",
+            "fused:name": "tree_census_h3_overture_buildings",
+            "fused:id": "5666866b-eb53-4ec4-b42a-002a75b85490"
+          },
+          "source": "tree_census_h3_overture_buildings.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

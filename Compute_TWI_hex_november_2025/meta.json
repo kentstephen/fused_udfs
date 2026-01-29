@@ -1,0 +1,88 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Compute_TWI_hex_november_2025",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultParameters": [],
+            "fused:datasets": "Digital Elevation Model",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "e_f",
+                  "domain": [
+                    1000,
+                    3880
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elev",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "raster",
+            "fused:slug": "Compute_TWI_hex_november_2025",
+            "fused:name": "Compute_TWI_hex_november_2025",
+            "fused:id": "f7240b7d-ced7-4824-a7e5-f6a847c028f4",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 38.38568043740128,
+              "longitude": -77.48949130413875,
+              "zoom": 9.949946744275215,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Compute_TWI.png",
+            "fused:tags": [
+              {
+                "id": "whitebox",
+                "label": "whitebox"
+              }
+            ],
+            "fused:description": "#### Overview\nApply [WhitboxTools](https://www.whiteboxgeo.com/manual/wbt_book/) workflows across the US using the USGS 3D Elevation Program (3DEP) Datasets from the National Map at 30-m resolution as the source for elevation data. WhitboxTools provides a wide range of functionalities for geospatial analysis. This UDF relies on [PyWBT](https://pywbt.readthedocs.io) to run the WhitboxTools.\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Compute_TWI\")\narr = fused.run(udf=udf, x=2411, y=3079, z=13)\narr\n```\n"
+          },
+          "source": "Compute_TWI_hex_november_2025.py",
+          "headers": [
+            {
+              "module_name": "wbt",
+              "source_file": "wbt.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

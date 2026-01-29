@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "flow_x_elevation_snake_river",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "flow_x_elevation_snake_river",
+            "fused:slug": "flow_x_elevation_snake_river",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.67744730042859,
+              "longitude": -110.69901813731276,
+              "zoom": 13.80903380496827,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.4,
+                "coverage": 0.9,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "e_f",
+                  "domain": [
+                    130,
+                    100,
+                    85,
+                    73
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elev",
+                "elevationScale": 0.15
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "2e36da5d-c7cc-4884-a290-ec3ffd45184b"
+          },
+          "source": "flow_x_elevation_snake_river.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

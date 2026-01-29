@@ -1,0 +1,101 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DEM_Terrarium_H3_Example",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 1,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    15400,
+                    1262
+                  ],
+                  "steps": 50,
+                  "colors": "BluYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  184,
+                  184,
+                  184
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "metric",
+                  "present": "@@=properties.metric",
+                  "absent": 1
+                },
+                "elevationScale": 2.5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "DEM_Terrarium_H3_Example",
+            "fused:name": "DEM_Terrarium_H3_Example",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 0.3171528770341913,
+              "longitude": -78.77450183522531,
+              "zoom": 10.926813117879666,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/850a484/community/stephenkentdata/DEM_Terrarium_H3_Example/",
+            "fused:gitPath": "community/stephenkentdata/DEM_Terrarium_H3_Example",
+            "fused:gitRef": "850a4845095c8e7fd170a7156d04a4af8df8f552",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/imageio_png.png",
+            "fused:description": "Read an image file with ImageIO.\n",
+            "fused:explorerPin": "99",
+            "fused:gitAuthorNames": [
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "fused-io[bot]"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/apps/fused-io"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/in/834700?v=4"
+            ],
+            "fused:gitLastModified": "2025-12-03T07:46:38+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "DEM_Terrarium_H3_Example.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dollar_store_grid_fsq",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 8,
+                "getHexagon": "@@=properties.hex",
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "comp_cnt",
+                  "present": "@@=properties.comp_cnt",
+                  "absent": 1
+                },
+                "elevationScale": 70,
+                "getFillColor": [
+                  255,
+                  127,
+                  0
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "dollar_store_grid_fsq",
+            "fused:name": "dollar_store_grid_fsq"
+          },
+          "source": "dollar_store_grid_fsq.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

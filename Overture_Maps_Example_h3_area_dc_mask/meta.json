@@ -1,0 +1,162 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Overture_Maps_Example_h3_area_dc_mask",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Overture_Map_Example2.png",
+            "fused:defaultParameters": [
+              {
+                "parameter": "release",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "2024-03-12-alpha-0",
+                  "2024-02-15-alpha-0"
+                ]
+              },
+              {
+                "parameter": "theme",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "buildings",
+                  "base",
+                  "places",
+                  "transportation",
+                  "admins"
+                ]
+              },
+              {
+                "parameter": "overture_type",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "land_use",
+                  "water",
+                  "administrative_boundary",
+                  "place",
+                  "connector",
+                  "segment",
+                  "building"
+                ]
+              },
+              {
+                "parameter": "use_columns",
+                "value": [],
+                "type": "array",
+                "suggestedValues": [
+                  "geometry",
+                  "id",
+                  "names",
+                  "sources",
+                  "update_time",
+                  "categories"
+                ]
+              }
+            ],
+            "fused:tags": [
+              {
+                "id": "overture",
+                "label": "overture"
+              },
+              {
+                "id": "coop",
+                "label": "coop"
+              }
+            ],
+            "fused:description": "Buildings footprints, places of interest (POIs), admin boundaries, and transportation globally from [Overture Maps](https://overturemaps.org/).\n\n## Parameters\n\n- `release`: Overture release ID. Defaults to `2024-03-12-alpha-0`. Note that `.` should be replaced with `-` in the ID.\n- `type`: One of `land_use`, `water`, `administrative_boundary`, `place`, `connector`, `segment`, `building` (default).\n- `theme`: One of `buildings`, `base`, `places`, `transportation`, `admins`. If not specified, this will be inferred from the type.\n- `use_columns`: Load only these columns if specified. Default is to load all columns.\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\nimport geopandas as gpd\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Overture_Maps_Example\")\ngdf_output = fused.run(udf, x=2622, y=6333, z=14)\ngdf = gpd.GeoDataFrame(gdf_output, geometry='geometry', crs='epsg:4326')\ngdf.plot()\n```\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "opacity": 10,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 0.001,
+                "getHexagon": "@@=properties.cell_id",
+                "getFillColor": "@@=[properties.tba * 50 + 1000, properties.tba * 8 properties.tba * 10]",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 0
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Overture_Maps_Example_h3_area_dc_mask",
+            "fused:name": "Overture_Maps_Example_h3_area_dc_mask",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 51.50786698991621,
+              "longitude": -0.10589130924052784,
+              "zoom": 13.935948485009598,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/28f65cbd5e37ba302e08e02237e6d5e352374839/public/Overture_Maps_Example/",
+            "fused:gitPath": "public/Overture_Maps_Example",
+            "fused:gitRef": "28f65cbd5e37ba302e08e02237e6d5e352374839",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky",
+              "Plinio Guzman",
+              "Sina Kashuk",
+              "Fabion Kauker",
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "pgzmnk",
+              "kashuk",
+              "fhk",
+              "fused-io[bot]"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/pgzmnk",
+              "https://github.com/kashuk",
+              "https://github.com/fhk",
+              "https://github.com/apps/fused-io"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/4031392?v=4",
+              "https://avatars.githubusercontent.com/in/834700?v=4"
+            ],
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/28f65cb/public/Overture_Maps_Example/",
+            "fused:gitLastModified": "2024-08-22T22:42:26+00:00",
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:explorerPin": "1"
+          },
+          "source": "Overture_Maps_Example_h3_area_dc_mask.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

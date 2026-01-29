@@ -1,0 +1,2 @@
+# hospitals_NE_isochrones_h3_kontur_file
+

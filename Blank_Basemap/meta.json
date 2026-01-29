@@ -1,0 +1,79 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Blank_Basemap",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 0
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "getFillColor": [
+                  15,
+                  25,
+                  35,
+                  212
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Blank_Basemap",
+            "fused:name": "Blank_Basemap",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 67.7559752042872,
+              "zoom": 0.7210991887071851,
+              "pitch": 19.474072189508938,
+              "bearing": 11.657788011679205
+            },
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:gitRef": "c19a49eda87ac2e2aa3567470f4f67baaab4e797",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/c19a49e/community/sina/Blank_Basemap/",
+            "fused:gitPath": "community/sina/Blank_Basemap",
+            "fused:gitLastModified": "2025-07-29T22:09:45+00:00",
+            "fused:gitPullRequestBranch": "sina_000002-patch-2832e2-add-BlankBasemap",
+            "fused:gitPullRequestLink": "https://github.com/fusedlabs/fusedudfs/pull/521",
+            "fused:assetUrl": "https://cdn.sanity.io/images/599r6htc/localized/5ed88457ecb696e59b440e73afeb81d906f84685-2498x1542.png",
+            "fused:description": "## Overview\n\nThis UDF is a blank vector tile. You can set its color in the Visualize tab.\n",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:explorerTab": "self",
+            "fused:id": "624a40a2-7541-401d-9b92-55d3dbbba356"
+          },
+          "source": "Blank_Basemap.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

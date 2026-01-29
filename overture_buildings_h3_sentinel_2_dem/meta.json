@@ -1,0 +1,76 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_h3_sentinel_2_dem",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "opacity": 0.4,
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_buildings_h3_sentinel_2_dem",
+            "fused:name": "overture_buildings_h3_sentinel_2_dem",
+            "fused:id": "93f690b2-a480-4424-9273-5a0c909d0b22",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            }
+          },
+          "source": "overture_buildings_h3_sentinel_2_dem.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

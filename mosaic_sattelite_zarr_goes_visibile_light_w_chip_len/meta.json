@@ -1,0 +1,77 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "mosaic_sattelite_zarr_goes_visibile_light_w_chip_len",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "mosaic_sattelite_zarr_goes_visibile_light_w_chip_len",
+            "fused:slug": "mosaic_sattelite_zarr_goes_visibile_light_w_chip_len",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:userCreatedShareToken": "fsh_70kox7O80ih3q5Kk0ioVA",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Teal",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:id": "eab3112f-4309-44e6-b14d-b5e0868a9594"
+          },
+          "source": "mosaic_sattelite_zarr_goes_visibile_light_w_chip_len.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

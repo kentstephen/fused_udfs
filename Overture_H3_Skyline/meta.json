@@ -1,0 +1,125 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Overture_H3_Skyline",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 11,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.3,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "avg_height",
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "colors": "TealRose"
+                },
+                "getHexagon": "@@=properties.hex",
+                "getElevation": "@@=properties.avg_height",
+                "elevationScale": 25
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Overture_H3_Skyline",
+            "fused:name": "Overture_H3_Skyline",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 37.78574117481262,
+              "longitude": -122.42039604816414,
+              "zoom": 12.798868824892553,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitPath": "public/Overture_H3_Skyline",
+            "fused:gitRef": "9c46dfb0e8afa5f1ea7809085d86977e3e7ade0b",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman",
+              "Isaac Brodsky",
+              "Suryashankar Das",
+              "Suryashankar Das"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "isaacbrodsky",
+              "iamsdas-fused",
+              "iamsdas"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/isaacbrodsky",
+              "https://github.com/iamsdas-fused",
+              "https://github.com/iamsdas"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/200643783?v=4",
+              "https://avatars.githubusercontent.com/u/26461855?v=4"
+            ],
+            "fused:gitLastModified": "2025-05-19T08:22:12+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:defaultParameters": [
+              {
+                "parameter": "h3_size",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "3",
+                  "4",
+                  "5",
+                  "6",
+                  "7",
+                  "8",
+                  "9",
+                  "10",
+                  "11",
+                  "12",
+                  "13"
+                ]
+              },
+              {
+                "parameter": "h3_scale",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "0",
+                  "1",
+                  "2"
+                ]
+              }
+            ],
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/h3_skyline.png",
+            "fused:description": "## Overview\n\nThis UDF uses the `get_overture` helper function to access the Overture dataset hosted in Source Coop. It calculates building metrics, including perimeter and area, and aggregates them by H3 cell. The H3 resolution dynamically adjusts with zoom level unless a specific h3_size is provided.\n"
+          },
+          "source": "Overture_H3_Skyline.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "H3_Hexagon_Layer_Example_deckgl_dash",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.cell_id",
+                "getFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 0.05
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "H3_Hexagon_Layer_Example_deckgl_dash",
+            "fused:name": "H3_Hexagon_Layer_Example_deckgl_dash",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.746878986881775,
+              "longitude": -73.91048113436547,
+              "zoom": 9.887562594810294,
+              "pitch": 60,
+              "bearing": -13.670886075949367
+            },
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/H3_Hexagon_Layer_Example.png",
+            "fused:tags": [
+              {
+                "id": "aggregation",
+                "label": "aggregation"
+              },
+              {
+                "id": "h3-polygon",
+                "label": "h3-polygon"
+              },
+              {
+                "id": "nyc-open-data",
+                "label": "nyc-open-data"
+              },
+              {
+                "id": "parquet",
+                "label": "parquet"
+              }
+            ],
+            "fused:description": "## Overview\n\nThis UDF shows how to open NYC yellow taxi trip dataset using DuckDB and aggregate the pickups using [H3-DuckDB](https://github.com/isaacbrodsky/h3-duckdb). Results are visualized as [hexagons](https://deck.gl/docs/api-reference/geo-layers/h3-hexagon-layer).\n\n## External links\n\n- [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/H3_Hexagon_Layer_Example\")\ngdf = fused.run(udf=udf)\ngdf\n```\n",
+            "fused:explorerTab": "self",
+            "fused:userCreatedShareToken": "fsh_ZGcuWfYtk4j2AZwGsRSmh",
+            "fused:id": "53dd0652-b37c-4dec-9937-0564a836bac4"
+          },
+          "source": "H3_Hexagon_Layer_Example_deckgl_dash.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

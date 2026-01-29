@@ -1,0 +1,93 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "historic_buildings_mass",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file and join with Overture.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "Teal",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "historic_buildings_mass",
+            "fused:name": "historic_buildings_mass",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/c8c3c4001efdc85ac2e352c5512f1ceb57d15464/files/Join_with_Overture/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/c8c3c40/files/Join_with_Overture/",
+            "fused:gitPath": "files/Join_with_Overture",
+            "fused:gitRef": "c8c3c4001efdc85ac2e352c5512f1ceb57d15464",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2024-09-04T03:05:15+00:00",
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/overture_join.png"
+          },
+          "source": "historic_buildings_mass.py",
+          "headers": [
+            {
+              "module_name": "util",
+              "source_file": "util.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

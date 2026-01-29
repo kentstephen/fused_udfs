@@ -1,0 +1,56 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "k_ring_public_transit_hospital_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": false,
+                "pickable": true,
+                "opacity": 10,
+                "getHexagon": "@@=properties.cell_id",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": "@@=[properties.cnt *20, properties.cnt , properties.cnt + 5000]"
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "k_ring_public_transit_hospital_h3",
+            "fused:name": "k_ring_public_transit_hospital_h3"
+          },
+          "source": "k_ring_public_transit_hospital_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

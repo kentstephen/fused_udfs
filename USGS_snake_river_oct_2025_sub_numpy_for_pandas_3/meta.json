@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "USGS_snake_river_oct_2025_sub_numpy_for_pandas_3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": false,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.23,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    2171,
+                    1970
+                  ],
+                  "steps": 50,
+                  "colors": "Sunset",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "USGS_snake_river_oct_2025_sub_numpy_for_pandas_3",
+            "fused:name": "USGS_snake_river_oct_2025_sub_numpy_for_pandas_3",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/rasterio_tiff.png",
+            "fused:description": "Read a GeoTIFF image file.\n",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 62.95061894852133,
+              "longitude": -151.21360578884804,
+              "zoom": 8.921856798444752,
+              "pitch": 40,
+              "bearing": 0
+            },
+            "fused:id": "148b3bc3-1a45-4f66-96fb-fb12b77b9314",
+            "fused:userCreatedShareToken": "fsh_7aUGFL8IM5tddfanL7nsfH"
+          },
+          "source": "USGS_snake_river_oct_2025_sub_numpy_for_pandas_3.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

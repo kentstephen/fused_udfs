@@ -1,0 +1,99 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_modis_2001",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 0.071,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    10,
+                    0
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": [
+                  184,
+                  184,
+                  184
+                ],
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "metric",
+                  "present": "@@=properties.metric",
+                  "absent": 1
+                },
+                "elevationScale": 2500
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "h3_modis_2001",
+            "fused:name": "h3_modis_2001",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0.3171528770341913,
+              "longitude": -78.77450183522531,
+              "zoom": 10.926813117879666,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:assetUrl": "fused_uploaded_preview",
+            "fused:description": "This is fork of: https://github.com/fusedio/udfs/tree/main/community/sina/DEM_Tile_Hexify",
+            "fused:tags": [
+              {
+                "id": "dem",
+                "label": "dem"
+              },
+              {
+                "id": "h3",
+                "label": "h3",
+                "isCreatable": true
+              },
+              {
+                "id": "aws",
+                "label": "aws"
+              }
+            ],
+            "fused:id": "4a46d602-1fe9-4d04-9557-c078435a6022",
+            "fused:userCreatedShareToken": "fsh_5zaCakSyEx7rw1tfUGSOxQ"
+          },
+          "source": "h3_modis_2001.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

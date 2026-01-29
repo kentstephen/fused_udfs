@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "h3_north_poles",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1.5,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "lat",
+                  "present": "@@=properties.lat",
+                  "absent": 1
+                },
+                "elevationScale": 1000,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "lat",
+                  "domain": [
+                    20,
+                    70
+                  ],
+                  "colors": "Peach",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "h3_north_poles",
+            "fused:name": "h3_north_poles",
+            "fused:id": "69179027-71c5-493a-83cb-bbc154da28db"
+          },
+          "source": "h3_north_poles.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

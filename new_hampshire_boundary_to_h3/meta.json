@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "new_hampshire_boundary_to_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:userCreatedShareToken": "fsh_83T0vYrvMyu91iMdvqenP",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "new_hampshire_boundary_to_h3",
+            "fused:name": "new_hampshire_boundary_to_h3",
+            "fused:id": "2fa039fb-37d7-4135-b796-e07b6e5ea62e"
+          },
+          "source": "new_hampshire_boundary_to_h3.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

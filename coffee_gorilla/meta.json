@@ -1,0 +1,70 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "coffee_gorilla",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.5,
+                "@@type": "ArcLayer",
+                "pickable": true,
+                "getHeight": 0.3521,
+                "getWidth": "@@=properties.cnt /1000",
+                "getSourcePosition": "@@=[properties.source_longitude,properties.source_latitude]",
+                "getTargetPosition": "@@=[properties.origin_longitude,properties.origin_latitude]",
+                "getSourceColor": [
+                  225,
+                  0,
+                  0,
+                  194
+                ],
+                "getTargetColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    3500
+                  ],
+                  "steps": 50,
+                  "colors": "Temps",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "coffee_gorilla",
+            "fused:name": "coffee_gorilla",
+            "fused:id": "952ff137-9621-4665-9c16-052111516ffb"
+          },
+          "source": "coffee_gorilla.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

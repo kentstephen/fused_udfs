@@ -1,0 +1,82 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "hospitals_Scotland_h3_isochrones_workss_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.554111261566106,
+              "longitude": -72.30598844833828,
+              "zoom": 7.686908622231028,
+              "pitch": 59.999999999999986,
+              "bearing": 43.15
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 13,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": "@@=[properties.cnt <= 12 ? 34 + (properties.cnt - 1) * (120 - 34) / (12 - 1) : properties.cnt <= 41 ? 120 + (properties.cnt - 12) * (200 - 120) / (41 - 12) : properties.cnt <= 245 ? 200 + (properties.cnt - 41) * (240 - 200) / (245 - 41) : 240 + (properties.cnt - 245) * (255 - 240) / (427 - 245), properties.cnt <= 12 ? 35 + (properties.cnt - 1) * (130 - 35) / (12 - 1) : properties.cnt <= 41 ? 130 + (properties.cnt - 12) * (210 - 130) / (41 - 12) : properties.cnt <= 245 ? 210 + (properties.cnt - 41) * (250 - 210) / (245 - 41) : 250 + (properties.cnt - 245) * (255 - 250) / (427 - 245), properties.cnt <= 12 ? 139 - (properties.cnt - 1) * (139 - 110) / (12 - 1) : properties.cnt <= 41 ? 110 - (properties.cnt - 12) * (110 - 90) / (41 - 12) : properties.cnt <= 245 ? 90 - (properties.cnt - 41) * (90 - 50) / (245 - 41) : 50 - (properties.cnt - 245) * (50 - 30) / (427 - 245), 255]"
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "hospitals_Scotland_h3_isochrones_workss_2",
+            "fused:name": "hospitals_Scotland_h3_isochrones_workss_2",
+            "fused:id": "543e002a-afbd-48a8-ba67-c32c63ebec08"
+          },
+          "source": "hospitals_Scotland_h3_isochrones_workss_2.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

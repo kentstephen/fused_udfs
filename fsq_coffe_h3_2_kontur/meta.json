@@ -1,0 +1,69 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "fsq_coffe_h3_2_kontur",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "opacity": 8,
+                "getHexagon": "@@=properties.hex",
+                "coverage": 1.7,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "cnt",
+                  "present": "@@=properties.cnt",
+                  "absent": 1
+                },
+                "elevationScale": 200,
+                "getFillColor": [
+                  255,
+                  215,
+                  0
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "fsq_coffe_h3_2_kontur",
+            "fused:name": "fsq_coffe_h3_2_kontur",
+            "fused:id": "a86e8bf9-37ad-4488-9e07-402c04cc70d4"
+          },
+          "source": "fsq_coffe_h3_2_kontur.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ndvi_buildings_overture",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "extruded": true,
+                "getElevation": "@@=properties.height*3",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "data",
+                  "domain": [
+                    0,
+                    100
+                  ],
+                  "colors": "Purp",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "ndvi_buildings_overture",
+            "fused:name": "ndvi_buildings_overture",
+            "fused:id": "61486e9d-c54b-4d49-ac8e-f6835556e367"
+          },
+          "source": "ndvi_buildings_overture.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

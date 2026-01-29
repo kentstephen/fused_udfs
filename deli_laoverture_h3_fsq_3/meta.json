@@ -1,0 +1,71 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "deli_laoverture_h3_fsq_3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 15,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 0.5,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 0.081,
+                "lineWidthMinPixels": 1,
+                "getLineWith": "@@=properties.stats*10",
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "pop",
+                  "domain": [
+                    0,
+                    25000
+                  ],
+                  "colors": "OrYel",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "deli_laoverture_h3_fsq_3",
+            "fused:name": "deli_laoverture_h3_fsq_3"
+          },
+          "source": "deli_laoverture_h3_fsq_3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

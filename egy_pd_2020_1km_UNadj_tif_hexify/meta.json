@@ -1,0 +1,108 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "egy_pd_2020_1km_UNadj_tif_hexify",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a GeoTIFF image file.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "extruded": true,
+                "pickable": true,
+                "coverage": 1,
+                "opacity": 5,
+                "getHexagon": "@@=properties.hex",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "pop",
+                  "present": "@@=properties.pop",
+                  "absent": 1
+                },
+                "elevationScale": 5,
+                "getLineColor": [
+                  0,
+                  0,
+                  0
+                ],
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 128]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "egy_pd_2020_1km_UNadj_tif_hexify",
+            "fused:name": "egy_pd_2020_1km_UNadj_tif_hexify",
+            "fused:id": "6505d700-bd73-4c84-b1e3-46577b1ee507",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/d9613bca5c5edaafbfe8c12fd1ad470514bcccc9/files/GeoTIFF_File/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/d9613bc/files/GeoTIFF_File/",
+            "fused:gitPath": "files/GeoTIFF_File",
+            "fused:gitRef": "d9613bca5c5edaafbfe8c12fd1ad470514bcccc9",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/rasterio_tiff.png",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky",
+              "Sina Kashuk",
+              "Plinio Guzman"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "kashuk",
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/kashuk",
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2024-10-24T17:26:12+00:00",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "egy_pd_2020_1km_UNadj_tif_hexify.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

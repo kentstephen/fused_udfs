@@ -1,0 +1,86 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "D3_Scatter_Plot_Template",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "DarkMint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "D3_Scatter_Plot_Template",
+            "fused:name": "D3_Scatter_Plot_Template",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/1f7acdd/community/milind/D3_Scatter_Plot_Template/",
+            "fused:gitPath": "community/milind/D3_Scatter_Plot_Template",
+            "fused:gitRef": "1f7acdd1acd13efc2e9ecaf45f5ccbe0c89ec725",
+            "fused:description": "Exported from Fused UDF Workbench\n\n",
+            "fused:gitAuthorNames": [
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-08-29T14:36:04+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "D3_Scatter_Plot_Template.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

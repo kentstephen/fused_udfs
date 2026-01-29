@@ -1,0 +1,21 @@
+# Get_Isochrone_tryst
+
+# Overview
+
+This UDF is using Valhalla API to create an isochrone. Valhalla, an open-source routing engine, and its accompanying libraries are designed for OpenStreetMap data, offering features such as time+distance matrix computation, isochrones, elevation sampling, map matching, and tour optimization (Travelling Salesman).
+
+# External links
+
+- [Valhalla Github repo](https://github.com/valhalla/valhalla)
+
+## Run this in any Jupyter Notebook
+
+```python
+import fused
+
+udf = fused.load("https://github.com/fusedio/udfs/tree/main/public/Get_Isochrone")
+gdf = fused.run(udf=udf)
+gdf
+```
+
+

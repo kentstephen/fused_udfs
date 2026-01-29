@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Watershed_Boundery_NH",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    25,
+                    175,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Watershed_Boundery_NH",
+            "fused:name": "Watershed_Boundery_NH",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.712660598044785,
+              "longitude": -73.90554827890774,
+              "zoom": 8.943602312657054,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:explorerTab": "self",
+            "fused:userCreatedShareToken": "fsh_5AesHEQZmKHV9Endv4bZZZ",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Watershed_Boundery_US.png",
+            "fused:description": "Exported from Fused UDF Workbench\n\n",
+            "fused:id": "e9bf82cc-6eaf-457c-b059-30d019105466"
+          },
+          "source": "Watershed_Boundery_NH.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "AirBnb_Listings_zoom_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:tags": [
+              {
+                "id": "H3-vector",
+                "label": "H3-vector"
+              },
+              {
+                "id": "airbnb",
+                "label": "airbnb"
+              },
+              {
+                "id": "Aggregation",
+                "label": "Aggregation"
+              },
+              {
+                "id": "DuckDB",
+                "label": "DuckDB"
+              },
+              {
+                "id": "csv",
+                "label": "csv"
+              }
+            ],
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "opacity": 0.01,
+                "@@type": "H3HexagonLayer",
+                "extruded": false,
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.cell_id",
+                "getFillColor": "@@=[(properties.cnt / properties.val) * 255 / 3, (properties.cnt / properties.val) * 255 / 3, 255 - (properties.cnt / properties.val) * 255 / 3]",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 0
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "AirBnb_Listings_zoom_h3",
+            "fused:name": "AirBnb_Listings_zoom_h3",
+            "fused:id": "b96ac456-09eb-478d-8aae-ce1fa6e70214",
+            "fused:assetUrl": "https://www.geomermaids.com/wp-content/uploads/2024/04/airbnb_new_orleans.png",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 42.34986928193666,
+              "longitude": -71.08157866743917,
+              "zoom": 11.95186270989124,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:description": "## Overview\n\nInteractive AirBnB offer map, generated from the data located at https://insideairbnb.com/get-the-data/\n",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/6107b2d000faa86a98810391fb11a9b20c6a87b9/public/AirBnb_Listings/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/6107b2d/public/AirBnb_Listings/",
+            "fused:gitPath": "public/AirBnb_Listings",
+            "fused:gitRef": "6107b2d000faa86a98810391fb11a9b20c6a87b9",
+            "fused:gitAuthorNames": [
+              "Guillaume SUEUR",
+              "Isaac Brodsky",
+              "Plinio Guzman"
+            ],
+            "fused:gitAuthorUsernames": [
+              "gsueur",
+              "isaacbrodsky",
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/gsueur",
+              "https://github.com/isaacbrodsky",
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/1681817?v=4",
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2024-07-02T15:37:29+00:00",
+            "fused:defaultParameters": [
+              {
+                "parameter": "city",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "Paris",
+                  "London",
+                  "Sydney",
+                  "Boston",
+                  "New York City",
+                  "San Francisco",
+                  "Twin Cities MSA",
+                  "Chicago",
+                  "Istanbul",
+                  "Rome",
+                  "Lisbon",
+                  "Berlin",
+                  "New Orleans",
+                  "Los Angeles",
+                  "Dallas",
+                  "Copenhagen",
+                  "Cape Town",
+                  "Buenos Aires",
+                  "Brussels"
+                ]
+              }
+            ],
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "AirBnb_Listings_zoom_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

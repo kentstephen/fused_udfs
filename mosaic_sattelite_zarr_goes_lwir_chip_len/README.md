@@ -1,0 +1,2 @@
+# mosaic_sattelite_zarr_goes_lwir_chip_len
+

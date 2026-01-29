@@ -1,0 +1,123 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "terarrium_overture",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 15,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getElevation": "@@=properties.stats*1",
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "stats",
+                  "present": "@@=[properties.stats*5, properties.stats*3, properties.stats*2]",
+                  "absent": [
+                    255,
+                    0,
+                    255
+                  ]
+                },
+                "getFillColor": "@@=[properties.stats*5, properties.stats*3, properties.stats*2]"
+              },
+              "loadingLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1
+              },
+              "errorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": [
+                  255,
+                  0,
+                  0,
+                  255
+                ],
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "terarrium_overture",
+            "fused:name": "terarrium_overture",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/3b8ce36/community/pgzmnk/terarrium_overture/",
+            "fused:gitPath": "community/pgzmnk/terarrium_overture",
+            "fused:gitRef": "3b8ce36f4fd23ca704fb2e274f28241564ed25ed",
+            "fused:gitAuthorNames": [
+              null,
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "iamsdas-fused",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/iamsdas-fused",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/200643783?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-30T11:42:29+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 37.75938991585074,
+              "longitude": -122.45326360506722,
+              "zoom": 13.523123150677634,
+              "pitch": 26.693658566666784,
+              "bearing": 6.113773770678549
+            },
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/imageio_png.png",
+            "fused:description": "Read an image file with ImageIO.\n",
+            "fused:explorerPin": "99",
+            "fused:id": "9562b702-0912-4988-8a64-87b16afd5740"
+          },
+          "source": "terarrium_overture.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

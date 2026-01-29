@@ -1,0 +1,99 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_census_vbi_sentinel",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "opacity": 5,
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    8,
+                    5
+                  ],
+                  "steps": 20,
+                  "colors": "ArmyRose",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "population",
+                  "domain": [
+                    0,
+                    5000
+                  ],
+                  "steps": 10,
+                  "colors": "Mint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getElevation": "@@=properties.population",
+                "elevationScale": 0.31,
+                "getFllColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_census_vbi_sentinel",
+            "fused:name": "overture_census_vbi_sentinel",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            }
+          },
+          "source": "overture_census_vbi_sentinel.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

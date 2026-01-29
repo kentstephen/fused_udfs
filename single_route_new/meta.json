@@ -1,0 +1,121 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "single_route_new",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "## Overview\n\nThis UDF returns a single optimal (time minimized) route as a function of origin and destination coordinate pairs (input variables), using the Valhalla routing engine API. The geopandas dataframe returned contains three rows: start and end point geometries and the linestring geometry of the optimal path. (Simple driving directions are also printed.)\n\n## External links\n\n- [Valhalla GitHub Docs](https://valhalla.github.io/valhalla/)\n",
+            "fused:tags": [
+              {
+                "id": "Routing",
+                "label": "Routing"
+              },
+              {
+                "id": "Valhalla",
+                "label": "Valhalla"
+              },
+              {
+                "id": "Calculate distance",
+                "label": "Calculate distance"
+              }
+            ],
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/route_lax.png",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": false,
+                "lineWidthMinPixels": 3,
+                "pointType": "circle",
+                "getPointRadius": 150,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    0,
+                    255,
+                    255,
+                    255
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    0,
+                    255,
+                    255,
+                    255
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "single_route_new",
+            "fused:name": "single_route_new",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/7f31c671479922dfe977d7a8f6c219124a81e2f2/public/single_route/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/7f31c67/public/single_route/",
+            "fused:gitPath": "public/single_route",
+            "fused:gitRef": "7f31c671479922dfe977d7a8f6c219124a81e2f2",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman",
+              "Gabriel Durkin"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "gdurkin"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/gdurkin"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/8119745?v=4"
+            ],
+            "fused:gitLastModified": "2024-07-02T15:37:29+00:00",
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "single_route_new.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "road_denisty_h3_buildings",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "opacity": 1,
+                "getElevation": "@@=properties.total_value/2",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "total_value",
+                  "domain": [
+                    0,
+                    200
+                  ],
+                  "colors": "OrYel",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getLineColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "road_denisty_h3_buildings",
+            "fused:name": "road_denisty_h3_buildings",
+            "fused:id": "417c3b79-92dc-4c93-ac60-f0986752f003"
+          },
+          "source": "road_denisty_h3_buildings.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

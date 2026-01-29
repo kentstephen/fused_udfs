@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "USGS_grand_canyon_oct_2025_sub_numpy_for_pandas_4",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": false,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 0.23,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    395,
+                    900
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "USGS_grand_canyon_oct_2025_sub_numpy_for_pandas_4",
+            "fused:name": "USGS_grand_canyon_oct_2025_sub_numpy_for_pandas_4",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/rasterio_tiff.png",
+            "fused:description": "Read a GeoTIFF image file.\n",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 62.95061894852133,
+              "longitude": -151.21360578884804,
+              "zoom": 8.921856798444752,
+              "pitch": 40,
+              "bearing": 0
+            },
+            "fused:id": "ef375d37-cf0b-4022-9c86-0785359fc247",
+            "fused:userCreatedShareToken": "fsh_la0osbNdypUY658q7K3bt"
+          },
+          "source": "USGS_grand_canyon_oct_2025_sub_numpy_for_pandas_4.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

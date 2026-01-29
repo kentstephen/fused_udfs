@@ -1,0 +1,95 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "USGS_13_n44w072_20240617_newfound_nh_tif",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    170,
+                    1000
+                  ],
+                  "steps": 20,
+                  "colors": "Geyser",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 5
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "USGS_13_n44w072_20240617_newfound_nh_tif",
+            "fused:name": "USGS_13_n44w072_20240617_newfound_nh_tif",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/b651b3f148a18af8df0ecbf3fe0e244433ab729d/files/GeoTIFF_File/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/b651b3f/files/GeoTIFF_File/",
+            "fused:gitPath": "files/GeoTIFF_File",
+            "fused:gitRef": "b651b3f148a18af8df0ecbf3fe0e244433ab729d",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/rasterio_tiff.png",
+            "fused:description": "Read a GeoTIFF image file.\n",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky",
+              "Sina Kashuk",
+              "Plinio Guzman",
+              "Milind Soni"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "kashuk",
+              "pgzmnk",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/kashuk",
+              "https://github.com/pgzmnk",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-04-13T13:43:46+00:00",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "USGS_13_n44w072_20240617_newfound_nh_tif.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,110 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "stream_CHM_h3_3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "canopy_height",
+                  "domain": [
+                    22,
+                    3,
+                    -10
+                  ],
+                  "steps": 50,
+                  "colors": "Fall",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.total_elevation",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "stream_CHM_h3_3",
+            "fused:name": "stream_CHM_h3_3",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 41.24075510148416,
+              "longitude": -78.34628671592925,
+              "zoom": 9.224527487041115,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:defaultParameters": [
+              {
+                "parameter": "bounds",
+                "value": "",
+                "type": "string",
+                "suggestedValues": []
+              },
+              {
+                "parameter": "path",
+                "value": "",
+                "type": "string",
+                "suggestedValues": []
+              }
+            ],
+            "fused:gitPath": "public/get_CHM_from_meta",
+            "fused:gitRef": "a2057d68b2657424424f33358dac75b1ca4f1142",
+            "fused:assetUrl": "https://fused-magic.s3.amazonaws.com/thumbnails/preview/fusedlabs/fusedudfs/get_CHM_from_meta/04ca4bd4-dc35-4e4d-97c2-3932aa8f0fd4",
+            "fused:tags": [
+              {
+                "id": "vegetation_management_demo",
+                "label": "vegetation_management_demo"
+              }
+            ],
+            "fused:description": "Get Canopy Height Map from Meta's open dataset on AWS\n",
+            "fused:gitAuthorNames": [],
+            "fused:gitAuthorUsernames": [],
+            "fused:gitAuthorUrls": [],
+            "fused:gitAuthorAvatarUrls": [],
+            "fused:gitLastModified": "2025-06-24T15:16:32+00:00",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:id": "2df18968-1080-4ab7-869a-b44b8d2b77cb",
+            "fused:userCreatedShareToken": "fsh_3n2RdZZoBfGssKBKMtjwoF"
+          },
+          "source": "stream_CHM_h3_3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

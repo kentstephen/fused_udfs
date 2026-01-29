@@ -1,0 +1,89 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "bfp_EGY_parquet_works",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file with DuckDB.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 0.01,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "cnt",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "Bold",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "bfp_EGY_parquet_works",
+            "fused:name": "bfp_EGY_parquet_works",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/a0092acfef6accedc87893b1b09db28accdbf062/files/DuckDB_Parquet/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/a0092ac/files/DuckDB_Parquet/",
+            "fused:gitPath": "files/DuckDB_Parquet",
+            "fused:gitRef": "a0092acfef6accedc87893b1b09db28accdbf062",
+            "fused:filePreview": true,
+            "fused:filePreviewExtensions": [
+              "parquet",
+              "pq",
+              "gpq",
+              "geoparquet"
+            ],
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4"
+            ],
+            "fused:gitLastModified": "2024-08-16T17:01:27+00:00",
+            "fused:explorerTab": "files",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:sharedToken": "UDF_DuckDB_Parquet"
+          },
+          "source": "bfp_EGY_parquet_works.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "montelier_water_bodies",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 44.260104999997786,
+              "longitude": -72.57538600001784,
+              "zoom": 12.000000000000517,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "FileLayer": {
+                "@@type": "FileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": [
+                  0,
+                  0,
+                  255,
+                  100
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "montelier_water_bodies",
+            "fused:name": "montelier_water_bodies",
+            "fused:id": "cb6fc7fa-0e54-4b5f-986c-aa214107caf6"
+          },
+          "source": "montelier_water_bodies.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

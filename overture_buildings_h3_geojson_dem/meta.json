@@ -1,0 +1,83 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_h3_geojson_dem",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineWidth": "@@=properties.burn_prob *70",
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "burn_prob",
+                  "domain": [
+                    0,
+                    330
+                  ],
+                  "steps": 20,
+                  "colors": "OrYel",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getLieColor": [
+                  255,
+                  165,
+                  0,
+                  255
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_buildings_h3_geojson_dem",
+            "fused:name": "overture_buildings_h3_geojson_dem",
+            "fused:id": "15983b06-d1ae-432f-aa1b-991e16e6863c",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            },
+            "fused:userCreatedShareToken": "fsh_2GwHfrChKC8BMStvcqvI61"
+          },
+          "source": "overture_buildings_h3_geojson_dem.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

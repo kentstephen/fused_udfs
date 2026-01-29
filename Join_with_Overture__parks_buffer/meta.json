@@ -1,0 +1,110 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Join_with_Overture__parks_buffer",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file and join with Overture.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "Teal",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "Join_with_Overture__parks_buffer",
+            "fused:name": "Join_with_Overture__parks_buffer",
+            "fused:id": "5771f2e2-81ca-4034-a9d3-4d557e9d6d9e",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/68a4de62709d6d6d46d9e16c69c7d606ca1e6524/files/Join_with_Overture/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/68a4de6/files/Join_with_Overture/",
+            "fused:gitPath": "files/Join_with_Overture",
+            "fused:gitRef": "68a4de62709d6d6d46d9e16c69c7d606ca1e6524",
+            "fused:filePreview": true,
+            "fused:filePreviewExtensions": [
+              "parquet",
+              "pq",
+              "gpq",
+              "geoparquet",
+              "json",
+              "geojson",
+              "zip"
+            ],
+            "fused:filePreviewMenuOrder": "3",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman",
+              "Sina Kashuk"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "kashuk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/kashuk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4"
+            ],
+            "fused:gitLastModified": "2024-09-06T00:39:49+00:00",
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/overture_join.png",
+            "fused:explorerPin": "99"
+          },
+          "source": "Join_with_Overture__parks_buffer.py",
+          "headers": [
+            {
+              "module_name": "utilss",
+              "source_file": "utilss.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

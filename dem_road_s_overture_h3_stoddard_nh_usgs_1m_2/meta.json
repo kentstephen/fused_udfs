@@ -1,0 +1,78 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "dem_road_s_overture_h3_stoddard_nh_usgs_1m_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 20,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "opacity": 1,
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "variance",
+                  "domain": [
+                    10,
+                    0
+                  ],
+                  "steps": 50,
+                  "colors": "Earth",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFllColor": [
+                  200,
+                  250,
+                  0,
+                  250
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "dem_road_s_overture_h3_stoddard_nh_usgs_1m_2",
+            "fused:name": "dem_road_s_overture_h3_stoddard_nh_usgs_1m_2",
+            "collectionMeta": {
+              "walking_network": {
+                "position": 6
+              }
+            },
+            "fused:userCreatedShareToken": "fsh_2YtyW44ScyBrg99actXqhy"
+          },
+          "source": "dem_road_s_overture_h3_stoddard_nh_usgs_1m_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

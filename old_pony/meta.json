@@ -1,0 +1,57 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "old_pony",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "old_pony",
+            "fused:slug": "old_pony",
+            "fused:hasDefaultName": true,
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": "@@=properties.height",
+                "elevationScale": 2,
+                "getFillColor": [
+                  184,
+                  184,
+                  184,
+                  80
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "34f593ae-27b5-4a98-8395-564a10f26837"
+          },
+          "source": "old_pony.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

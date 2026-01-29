@@ -1,0 +1,54 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "elevated_sentinel_hex_3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 258,
+                "pickable": true
+              },
+              "hexLayer": {
+                "coverage": 1,
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.agg_band1, properties.agg_band2, properties.agg_band3]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "elevated_sentinel_hex_3",
+            "fused:name": "elevated_sentinel_hex_3",
+            "fused:id": "2ef9a98e-90e9-478a-8de0-619df183da49"
+          },
+          "source": "elevated_sentinel_hex_3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

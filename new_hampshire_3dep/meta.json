@@ -1,0 +1,66 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "new_hampshire_3dep",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:userCreatedShareToken": "fsh_7rOJiqLmwMImzWt8mFy3e",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    52,
+                    380,
+                    1000
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "new_hampshire_3dep",
+            "fused:name": "new_hampshire_3dep",
+            "fused:id": "e67f35e6-06a5-4ec0-8bb6-c58f8d18ffe4"
+          },
+          "source": "new_hampshire_3dep.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

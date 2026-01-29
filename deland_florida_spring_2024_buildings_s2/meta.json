@@ -1,0 +1,67 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "deland_florida_spring_2024_buildings_s2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 1,
+                "getLieColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "data",
+                  "domain": [
+                    0,
+                    1
+                  ],
+                  "colors": "BrwnYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getLineColor": [
+                  255,
+                  165,
+                  0
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "deland_florida_spring_2024_buildings_s2",
+            "fused:name": "deland_florida_spring_2024_buildings_s2",
+            "fused:id": "0f04326c-50bd-4455-8bd9-4cd10710f19e"
+          },
+          "source": "deland_florida_spring_2024_buildings_s2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

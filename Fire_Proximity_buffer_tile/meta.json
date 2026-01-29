@@ -1,0 +1,65 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Fire_Proximity_buffer_tile",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "Fire_Proximity_buffer_tile",
+            "fused:slug": "Fire_Proximity_buffer_tile",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": [
+                  255,
+                  255,
+                  0
+                ],
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile"
+          },
+          "source": "Fire_Proximity_buffer_tile.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

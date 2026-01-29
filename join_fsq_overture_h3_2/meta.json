@@ -1,0 +1,97 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "join_fsq_overture_h3_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "collectionMeta": {
+              "join_pois_with_overture_copy": {
+                "position": 7
+              }
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 8,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 1,
+                "getPointRadius": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "height",
+                  "present": "@@=properties.height",
+                  "absent": 1
+                },
+                "elevationScale": 8,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "level1_category_name",
+                  "present": {
+                    "@@function": "colorCategories",
+                    "attr": "level1_category_name",
+                    "domain": [
+                      "Dining and Drinking",
+                      "Business and Professional Services",
+                      "Retail",
+                      "NA",
+                      "Travel and Transportation",
+                      "Community and Government",
+                      "Arts and Entertainment",
+                      "Landmarks and Outdoors",
+                      "Health and Medicine",
+                      "Sports and Recreation",
+                      "Event"
+                    ],
+                    "colors": "Safe"
+                  },
+                  "absent": [
+                    25,
+                    0,
+                    0,
+                    100
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "join_fsq_overture_h3_2",
+            "fused:name": "join_fsq_overture_h3_2",
+            "fused:id": "fcc72352-80ae-446c-b649-6dede6e7e163"
+          },
+          "source": "join_fsq_overture_h3_2.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

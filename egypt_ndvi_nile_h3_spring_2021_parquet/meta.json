@@ -1,0 +1,88 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "egypt_ndvi_nile_h3_spring_2021_parquet",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    10,
+                    5.15
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "egypt_ndvi_nile_h3_spring_2021_parquet",
+            "fused:name": "egypt_ndvi_nile_h3_spring_2021_parquet",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/2528576155696ad0aa24beef28643891343f2211/files/Pandas_Parquet/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/2528576/files/Pandas_Parquet/",
+            "fused:gitPath": "files/Pandas_Parquet",
+            "fused:gitRef": "2528576155696ad0aa24beef28643891343f2211",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/pd_parquet.png",
+            "fused:description": "Read a Parquet or Geoparquet file.\n",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "pgzmnk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/pgzmnk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4"
+            ],
+            "fused:gitLastModified": "2024-10-24T17:26:12+00:00",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "egypt_ndvi_nile_h3_spring_2021_parquet.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

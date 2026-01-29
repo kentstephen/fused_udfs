@@ -1,0 +1,55 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "violet_blackbird",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=cell_id",
+                "lineWidthMinPixels": 0.001,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": "@@=[cnt *5,cnt *7,cnt *10 ]"
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "violet_blackbird",
+            "fused:name": "violet_blackbird",
+            "fused:id": "07c7fc40-e824-476d-b18b-ea9b78577d20"
+          },
+          "source": "violet_blackbird.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

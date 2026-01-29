@@ -1,0 +1,93 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ndvi_sentinel_hex_dem_nile_delta",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    10,
+                    5.21
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 3
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "ndvi_sentinel_hex_dem_nile_delta",
+            "fused:name": "ndvi_sentinel_hex_dem_nile_delta",
+            "fused:defaultParameters": [],
+            "fused:datasets": "Sentinel 2",
+            "fused:id": "e718a5c3-e7c5-457c-a113-bd620b06a31a",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Sentinel_Tile_Example.png",
+            "fused:tags": [
+              {
+                "id": "usgs",
+                "label": "usgs"
+              },
+              {
+                "id": "hillshade",
+                "label": "hillshade"
+              }
+            ],
+            "fused:description": "### Overview [link](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\nThe [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days. This dataset represents the global Sentinel-2 archive, from 2016 to the present, processed to L2A (bottom-of-atmosphere) using Sen2Cor and converted to cloud-optimized GeoTIFF format.\n\n### External links\n* [Reference](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\n* [AWS Earth Search STAC](https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a)\n* [Microsoft Planetary Computer STAC](https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Sentinel_Tile_Example\")\narr = fused.run(udf, x=5241, y=12667, z=15)\narr\n```\n",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 30.773402761894328,
+              "longitude": 30.892237800681414,
+              "zoom": 8.1816750299971,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:userCreatedShareToken": "fsh_3zip4HGmittVFgK2YQukUD"
+          },
+          "source": "ndvi_sentinel_hex_dem_nile_delta.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

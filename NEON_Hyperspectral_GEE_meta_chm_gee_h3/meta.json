@@ -1,0 +1,98 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "NEON_Hyperspectral_GEE_meta_chm_gee_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 31.825789013693836,
+              "longitude": -110.86448999039044,
+              "zoom": 10.66729173001565,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "lineWidthMinPixels": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "canopy_height",
+                  "domain": [
+                    19,
+                    5,
+                    0,
+                    -20
+                  ],
+                  "steps": 50,
+                  "colors": "Fall",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "canopy_height",
+                  "domain": [
+                    0,
+                    5
+                  ],
+                  "steps": 7,
+                  "colors": "ArmyRose",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.total_elevation",
+                "elevationScale": 1
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "NEON_Hyperspectral_GEE_meta_chm_gee_h3",
+            "fused:name": "NEON_Hyperspectral_GEE_meta_chm_gee_h3",
+            "fused:explorerTab": "self",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/neon_hyperspectral.png",
+            "fused:description": "# NEON Hyperspectral Signature Explorer\n\nNEON AOP is an NSF-funded initiative that's revolutionizing ecological observation. Using advanced imaging spectrometers, NEON collects hyperspectral data across 426 distinct wavelength bands at 1-meter resolution. Imagine having 426 different perspectives of the same landscape, each revealing unique insights about vegetation, soil composition, and ecosystem health.\n\nThis UDF powers an app where users can select any NEON site and survey year from a dynamically populated list - a feature that automatically stays current with GEE's data catalog, as NEON sites are surveyed at different frequencies. Once a site is selected, users can click anywhere within the highlighted area to instantly view all 426 bands of spectral data in an interactive plot.\n\n\n"
+          },
+          "source": "NEON_Hyperspectral_GEE_meta_chm_gee_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

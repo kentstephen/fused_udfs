@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "fsq_not_starbucks_h3_cells",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "route_overlap",
+                  "present": "@@=properties.route_overlap",
+                  "absent": 1
+                },
+                "elevationScale": 0.5,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  64,
+                  224,
+                  208
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "fsq_not_starbucks_h3_cells",
+            "fused:name": "fsq_not_starbucks_h3_cells",
+            "fused:id": "400d3a0b-071a-4d8f-9e43-c39d68a15944"
+          },
+          "source": "fsq_not_starbucks_h3_cells.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

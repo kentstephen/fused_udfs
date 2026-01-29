@@ -1,0 +1,188 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Overture_Maps_paris_connector",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Overture_Map_Example2.png",
+            "fused:defaultParameters": [
+              {
+                "parameter": "release",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "2024-03-12-alpha-0",
+                  "2024-02-15-alpha-0"
+                ]
+              },
+              {
+                "parameter": "theme",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "buildings",
+                  "base",
+                  "places",
+                  "transportation",
+                  "admins"
+                ]
+              },
+              {
+                "parameter": "overture_type",
+                "value": "",
+                "type": "string",
+                "suggestedValues": [
+                  "land_use",
+                  "water",
+                  "administrative_boundary",
+                  "place",
+                  "connector",
+                  "segment",
+                  "building"
+                ]
+              },
+              {
+                "parameter": "use_columns",
+                "value": [],
+                "type": "array",
+                "suggestedValues": [
+                  "geometry",
+                  "id",
+                  "names",
+                  "sources",
+                  "update_time",
+                  "categories"
+                ]
+              }
+            ],
+            "fused:tags": [
+              {
+                "id": "buildings",
+                "label": "buildings"
+              },
+              {
+                "id": "footprint",
+                "label": "footprint"
+              },
+              {
+                "id": "geoparquet",
+                "label": "geoparquet"
+              },
+              {
+                "id": "global",
+                "label": "global"
+              },
+              {
+                "id": "places",
+                "label": "places"
+              },
+              {
+                "id": "overture",
+                "label": "overture"
+              },
+              {
+                "id": "vector",
+                "label": "vector"
+              },
+              {
+                "id": "admin",
+                "label": "admin"
+              }
+            ],
+            "fused:description": "Buildings footprints, places of interest (POIs), admin boundaries, and transportation globally from [Overture Maps](https://overturemaps.org/).\n\n## Parameters\n\n- `release`: Overture release ID. Defaults to `2024-03-12-alpha-0`. Note that `.` should be replaced with `-` in the ID.\n- `type`: One of `land_use`, `water`, `administrative_boundary`, `place`, `connector`, `segment`, `building` (default).\n- `theme`: One of `buildings`, `base`, `places`, `transportation`, `admins`. If not specified, this will be inferred from the type.\n- `use_columns`: Load only these columns if specified. Default is to load all columns.\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\nimport geopandas as gpd\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Overture_Maps_Example\")\ngdf_output = fused.run(udf, x=2622, y=6333, z=14)\ngdf = gpd.GeoDataFrame(gdf_output, geometry='geometry', crs='epsg:4326')\ngdf.plot()\n```\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 0.6,
+                "pointRadiusMinPixels": 0.1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    199,
+                    21
+                  ]
+                },
+                "getFillColor": [
+                  200,
+                  200,
+                  175,
+                  200
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Overture_Maps_paris_connector",
+            "fused:name": "Overture_Maps_paris_connector",
+            "fused:id": "8d9d9654-a0c8-4682-813f-082233b43d1a",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 48.858070578627284,
+              "longitude": 2.3420663958546175,
+              "zoom": 11.557130536681665,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/7e091f98de7835ec761c1ba82aea9f54d9964f42/public/Overture_Maps_Example/",
+            "fused:gitPath": "public/Overture_Maps_Example",
+            "fused:gitRef": "7e091f98de7835ec761c1ba82aea9f54d9964f42",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky",
+              "Plinio Guzman",
+              "Sina Kashuk",
+              "Fabion Kauker"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "pgzmnk",
+              "kashuk",
+              "fhk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/pgzmnk",
+              "https://github.com/kashuk",
+              "https://github.com/fhk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4",
+              "https://avatars.githubusercontent.com/u/4031392?v=4"
+            ],
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/7e091f9/public/Overture_Maps_Example/",
+            "fused:gitLastModified": "2024-04-19T18:35:06+00:00",
+            "fused:explorerTab": "public"
+          },
+          "source": "Overture_Maps_paris_connector.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

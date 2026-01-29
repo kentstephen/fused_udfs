@@ -1,0 +1,82 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "hospitals_NE_h3_isochrones_workss_with_NE_mask_names",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 43.67459768462764,
+              "longitude": -71.23659715400456,
+              "zoom": 7.686908622231032,
+              "pitch": 59.99999999999999,
+              "bearing": 2.3000000000000043
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 1,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "population",
+                  "present": "@@=properties.population",
+                  "absent": 1
+                },
+                "elevationScale": 13,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": "@@=[properties.hospital_density <= 12 ? 34 + (properties.hospital_density - 1) * (120 - 34) / (12 - 1) : properties.hospital_density <= 41 ? 120 + (properties.hospital_density - 12) * (200 - 120) / (41 - 12) : properties.hospital_density <= 245 ? 200 + (properties.hospital_density - 41) * (240 - 200) / (245 - 41) : 240 + (properties.hospital_density - 245) * (255 - 240) / (427 - 245), properties.hospital_density <= 12 ? 35 + (properties.hospital_density - 1) * (130 - 35) / (12 - 1) : properties.hospital_density <= 41 ? 130 + (properties.hospital_density - 12) * (210 - 130) / (41 - 12) : properties.hospital_density <= 245 ? 210 + (properties.hospital_density - 41) * (250 - 210) / (245 - 41) : 250 + (properties.hospital_density - 245) * (255 - 250) / (427 - 245), properties.hospital_density <= 12 ? 139 - (properties.hospital_density - 1) * (139 - 110) / (12 - 1) : properties.hospital_density <= 41 ? 110 - (properties.hospital_density - 12) * (110 - 90) / (41 - 12) : properties.hospital_density <= 245 ? 90 - (properties.hospital_density - 41) * (90 - 50) / (245 - 41) : 50 - (properties.hospital_density - 245) * (50 - 30) / (427 - 245), 255]"
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "hospitals_NE_h3_isochrones_workss_with_NE_mask_names",
+            "fused:name": "hospitals_NE_h3_isochrones_workss_with_NE_mask_names",
+            "fused:id": "188993e1-17d2-493f-9963-5f20eb54f216"
+          },
+          "source": "hospitals_NE_h3_isochrones_workss_with_NE_mask_names.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "join_with_overture_walking_ped_rec_park",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:description": "Read a Parquet or Geoparquet file and join with Overture.\n",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "extruded": false,
+                "filled": true,
+                "pickable": true,
+                "opacity": 1,
+                "getHexagon": "@@=properties.cell_id",
+                "lineWidthMinPixels": 0.01,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 128]",
+                  "absent": [
+                    255,
+                    0,
+                    255,
+                    128
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "join_with_overture_walking_ped_rec_park",
+            "fused:name": "join_with_overture_walking_ped_rec_park",
+            "fused:id": "c5f7ccc7-8701-41b8-a334-f56ee74f1a5a",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/7f31c671479922dfe977d7a8f6c219124a81e2f2/files/Join_with_Overture/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/7f31c67/files/Join_with_Overture/",
+            "fused:gitPath": "files/Join_with_Overture",
+            "fused:gitRef": "7f31c671479922dfe977d7a8f6c219124a81e2f2",
+            "fused:filePreview": true,
+            "fused:filePreviewExtensions": [
+              "parquet",
+              "pq",
+              "gpq",
+              "geoparquet",
+              "json",
+              "geojson",
+              "zip"
+            ],
+            "fused:filePreviewMenuOrder": "3",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman",
+              "Sina Kashuk"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "kashuk"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/kashuk"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/12432685?v=4"
+            ],
+            "fused:gitLastModified": "2024-09-06T00:39:49+00:00",
+            "fused:explorerTab": "public",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/overture_join.png",
+            "fused:explorerPin": "99"
+          },
+          "source": "join_with_overture_walking_ped_rec_park.py",
+          "headers": [
+            {
+              "module_name": "util",
+              "source_file": "util.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

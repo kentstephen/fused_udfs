@@ -1,0 +1,111 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Silam_Global_Dust_Zarr_2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true,
+                "opacity": 0.7
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "PurpOr",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Silam_Global_Dust_Zarr_2",
+            "fused:name": "Silam_Global_Dust_Zarr_2",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 30.28911781919531,
+              "longitude": 14.641288409584284,
+              "zoom": 1.5749928501762989,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/29a12d0bad2d758abd4acae6fef2ffd14d7399a9/community/christopherkyed/Silam_Global_Dust_Zarr/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/29a12d0/community/christopherkyed/Silam_Global_Dust_Zarr/",
+            "fused:gitPath": "community/christopherkyed/Silam_Global_Dust_Zarr",
+            "fused:gitRef": "29a12d0bad2d758abd4acae6fef2ffd14d7399a9",
+            "fused:assetUrl": "https://fused-magic.s3.amazonaws.com/thumbnails/preview/fusedio/udfs/Silam_Global_Dust/ee96ae2d-60b3-455d-94ae-6efde4d0b3db",
+            "fused:tags": [
+              {
+                "id": "raster",
+                "label": "raster"
+              },
+              {
+                "id": "zarr",
+                "label": "zarr"
+              },
+              {
+                "id": "climate",
+                "label": "climate"
+              }
+            ],
+            "fused:description": "## Silam Global Dust \n\nVisualize Zarr3 data from [Source Coop](https://source.coop/bkr/silam-dust)\n",
+            "fused:gitAuthorNames": [
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "fused-io[bot]"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/apps/fused-io"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/in/834700?v=4"
+            ],
+            "fused:gitLastModified": "2025-10-17T07:40:53+00:00",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:id": "f265dc0d-552a-40df-9867-f18794342cde"
+          },
+          "source": "Silam_Global_Dust_Zarr_2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

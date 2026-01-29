@@ -1,0 +1,118 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Satellite_Greenest_Pixel",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 37.77900389604087,
+              "longitude": -122.4195,
+              "zoom": 11.90833183741693,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true,
+                "textureParameters": {
+                  "minFilter": "nearest",
+                  "magFilter": "nearest"
+                }
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    0,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single_none",
+            "fused:slug": "Satellite_Greenest_Pixel",
+            "fused:name": "Satellite_Greenest_Pixel",
+            "fused:gitPath": "community/sina/Satellite_Greenest_Pixel",
+            "fused:gitRef": "c188092f1ef4fbbce762b0e9fcf2f6b932c06bc0",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-31T17:10:34+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:userCreatedShareToken": "fsh_7HPkSFPuWBUguS9b0qpmPg",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/c188092/community/sina/Satellite_Greenest_Pixel/",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/cuatrocienegas.png",
+            "fused:tags": [
+              {
+                "id": "dem",
+                "label": "dem"
+              },
+              {
+                "id": "raster",
+                "label": "raster"
+              },
+              {
+                "id": "file",
+                "label": "file"
+              },
+              {
+                "id": "pc",
+                "label": "pc"
+              }
+            ],
+            "fused:description": "# Overview\n\nThis UDF is particularly useful for generating cloud-free, vegetation-optimized composite images from time series satellite data, which can be used for various remote sensing applications and analyses.\n\nIt first retrieves satellite imagery data from Microsoft's Planetary Computer based on specified parameters (collection, bands, time range, and query). It then processes the retrieved data to create a composite image using a selected method (max, median, or min) across the time series.\n\nThe function allows for flexibility in choosing the satellite data source (MODIS, Landsat, or Sentinel-2), specifying the area of interest (bounds), time range, and cloud cover constraints. It also provides options for customizing the output, such as the chip size and compositing method.\n\n# External links\n\n- [source](https://planetarycomputer.microsoft.com/dataset/)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Satellite_Greenest_Pixel\")\narr = fused.run(udf=udf, x=2915, y=6546, z=14)\narr\n```\n"
+          },
+          "source": "Satellite_Greenest_Pixel.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

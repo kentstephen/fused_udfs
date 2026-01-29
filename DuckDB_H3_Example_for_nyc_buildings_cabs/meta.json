@@ -1,0 +1,102 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "DuckDB_H3_Example_for_nyc_buildings_cabs",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "opacity": 5,
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "getRadius": 10,
+                "getFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]"
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "DuckDB_H3_Example_for_nyc_buildings_cabs",
+            "fused:name": "DuckDB_H3_Example_for_nyc_buildings_cabs",
+            "fused:id": "4ae436c3-86b7-46cf-b713-af39a64bc6c0",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.746878986881775,
+              "longitude": -73.91048113436547,
+              "zoom": 9.887562594810294,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitPath": "public/DuckDB_H3_Example",
+            "fused:gitRef": "8670f6ddbf62f680e806f3bffcbce8d8d6c5fb10",
+            "fused:gitAuthorNames": [
+              "Isaac Brodsky",
+              "Plinio Guzman",
+              "Suryashankar Das"
+            ],
+            "fused:gitAuthorUsernames": [
+              "isaacbrodsky",
+              "pgzmnk",
+              "iamsdas"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/isaacbrodsky",
+              "https://github.com/pgzmnk",
+              "https://github.com/iamsdas"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/9139378?v=4",
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/26461855?v=4"
+            ],
+            "fused:gitLastModified": "2025-05-19T08:22:12+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Duckdb_H3_Example.png",
+            "fused:tags": [
+              {
+                "id": "aggregation",
+                "label": "aggregation"
+              },
+              {
+                "id": "parquet",
+                "label": "parquet"
+              },
+              {
+                "id": "duckdb",
+                "label": "duckdb"
+              },
+              {
+                "id": "h3-vector",
+                "label": "h3-vector"
+              }
+            ],
+            "fused:description": "## Overview\n\nThis UDF shows how to open NYC yellow taxi trip dataset using DuckDB and aggregate the pickups using [H3-DuckDB](https://github.com/isaacbrodsky/h3-duckdb).\n\n## External links\n\n- [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/DuckDB_H3_Example\")\ngdf = fused.run(udf=udf)\ngdf\n```\n"
+          },
+          "source": "DuckDB_H3_Example_for_nyc_buildings_cabs.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

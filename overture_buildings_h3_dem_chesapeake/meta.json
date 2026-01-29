@@ -1,0 +1,76 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_h3_dem_chesapeake",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    5,
+                    200
+                  ],
+                  "steps": 25,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_buildings_h3_dem_chesapeake",
+            "fused:name": "overture_buildings_h3_dem_chesapeake",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            }
+          },
+          "source": "overture_buildings_h3_dem_chesapeake.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

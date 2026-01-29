@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "USGS_snake_river_oct_2026",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    1970,
+                    2100
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 0.5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "USGS_snake_river_oct_2026",
+            "fused:name": "USGS_snake_river_oct_2026",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udf_cards/rasterio_tiff.png",
+            "fused:description": "Read a GeoTIFF image file.\n",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 62.92472492968301,
+              "longitude": -150.99251260262798,
+              "zoom": 8.707237401629591,
+              "pitch": 60,
+              "bearing": 0
+            }
+          },
+          "source": "USGS_snake_river_oct_2026.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "fsq_places_building_volume_starbucks",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "extruded": true,
+                "filled": true,
+                "pickable": true,
+                "getElevation": "@@=properties.metric/350",
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "colors": "Teal",
+                  "nullColor": [
+                    255,
+                    215,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  215,
+                  0,
+                  170
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "fsq_places_building_volume_starbucks",
+            "fused:name": "fsq_places_building_volume_starbucks",
+            "fused:id": "e1d831e0-9c87-4a7a-9d29-1210cbdd07ad"
+          },
+          "source": "fsq_places_building_volume_starbucks.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

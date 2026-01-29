@@ -1,0 +1,118 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "PC_Sentinel2",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 33.93986525365819,
+              "longitude": -115.89837033461225,
+              "zoom": 12.623129178162976,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    0,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "PC_Sentinel2",
+            "fused:name": "PC_Sentinel2",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/eab2d8953bf49ea87fff40822481c83198b4ce50/public/PC_Sentinel2/",
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/eab2d89/public/PC_Sentinel2/",
+            "fused:gitPath": "public/PC_Sentinel2",
+            "fused:gitRef": "eab2d8953bf49ea87fff40822481c83198b4ce50",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/docs_assets/github_udfs_repo/mecca_sentinel2.png",
+            "fused:tags": [
+              {
+                "id": "dem",
+                "label": "dem"
+              },
+              {
+                "id": "raster",
+                "label": "raster"
+              },
+              {
+                "id": "file",
+                "label": "file"
+              },
+              {
+                "id": "pc",
+                "label": "pc"
+              }
+            ],
+            "fused:description": "# Overview\n\nThis UDF renders a RGB image from the Planetary Computer Sentinel-2 dataset.\n\nThe Sentinel-2 program offers global imagery across thirteen spectral bands with resolutions ranging from 10m to 60m and a revisit interval of about five days. This dataset encompasses the global Sentinel-2 archive from 2016 to the present, processed to Level 2A (bottom-of-atmosphere) using Sen2Cor and converted to cloud-optimized GeoTIFF format.\n\n\n# External links\n\n- [source](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/PC_Sentinel2\")\narr = fused.run(udf=udf, x=2915, y=6546, z=14)\narr\n```",
+            "fused:gitAuthorNames": [
+              "Plinio Guzman",
+              "Suryashankar Das",
+              "Milind Soni"
+            ],
+            "fused:gitAuthorUsernames": [
+              "pgzmnk",
+              "iamsdas",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/pgzmnk",
+              "https://github.com/iamsdas",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/27398253?v=4",
+              "https://avatars.githubusercontent.com/u/26461855?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-04-05T14:26:45+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "PC_Sentinel2.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "white_spoonbill",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "opacity": 0.1,
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 2,
+                "pointRadiusMinPixels": 1.51,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    0,
+                    200
+                  ],
+                  "steps": 25,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": [
+                  250,
+                  200,
+                  0,
+                  100
+                ]
+              },
+              "getElevation": "@@=properties.metric",
+              "elevationScale": 5
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "white_spoonbill",
+            "fused:name": "white_spoonbill"
+          },
+          "source": "white_spoonbill.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

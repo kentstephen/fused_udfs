@@ -1,0 +1,83 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "gdf_ndvi_colors_3_nyc_neigborhood_boundaries",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "opacity": 0.01,
+                "lineWidthMinPixels": 3.51,
+                "pointRadiusMinPixels": 2,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "avg_ndvi",
+                  "domain": [
+                    5,
+                    0.1
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "avg_ndvi",
+                  "domain": [
+                    5,
+                    0.1
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "gdf_ndvi_colors_3_nyc_neigborhood_boundaries",
+            "fused:name": "gdf_ndvi_colors_3_nyc_neigborhood_boundaries",
+            "fused:id": "37274a03-76bc-4955-9c91-3125350e82d9"
+          },
+          "source": "gdf_ndvi_colors_3_nyc_neigborhood_boundaries.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

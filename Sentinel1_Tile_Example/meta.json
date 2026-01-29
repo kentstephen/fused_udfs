@@ -1,0 +1,108 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Sentinel1_Tile_Example",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    0,
+                    255
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "vector_single_none",
+            "fused:slug": "Sentinel1_Tile_Example",
+            "fused:name": "Sentinel1_Tile_Example",
+            "fused:defaultParameters": [],
+            "fused:datasets": "Sentinel 2",
+            "fused:gitPath": "community/sina/Sentinel1_Tile_Example",
+            "fused:gitRef": "c188092f1ef4fbbce762b0e9fcf2f6b932c06bc0",
+            "fused:gitAuthorNames": [
+              null,
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "MaxLenormand",
+              "milind-soni"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/MaxLenormand",
+              "https://github.com/milind-soni"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/u/44133329?v=4",
+              "https://avatars.githubusercontent.com/u/46266943?v=4"
+            ],
+            "fused:gitLastModified": "2025-07-31T17:10:34+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:gitPullRequestBranch": "milind-patch-eca47c-updated-bounds-for-UDF",
+            "fused:gitPullRequestLink": "https://github.com/fusedio/udfs/pull/807",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 52.299706672608956,
+              "longitude": 4.745550133916183,
+              "zoom": 10.87747397263456,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/c188092/community/sina/Sentinel1_Tile_Example/",
+            "fused:tags": [
+              {
+                "id": "usgs",
+                "label": "usgs"
+              },
+              {
+                "id": "hillshade",
+                "label": "hillshade"
+              }
+            ],
+            "fused:description": "# Sentinel-1 Edge Detection\n\n## Description\nThis UDF processes Sentinel-1 radar data to detect edges and boundaries in landscapes using a multi-directional image shifting technique. By calculating pixel-wise standard deviation across shifted images, it highlights coastlines, urban boundaries, transportation networks, and topographic features. The radar-based approach works regardless of cloud cover or time of day, making it ideal for consistent monitoring of structural elements in the landscape.\n\n## External links\n* [Sentinel-1 Documentation](https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-1-sar)\n* [Microsoft Planetary Computer STAC](https://planetarycomputer.microsoft.com/dataset/sentinel-1-rtc)\n\n## Run this in any Jupyter Notebook\n```python\nimport fused\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Sentinel1_Edge_Detection\")\narr = fused.run(udf, time_of_interest=\"2023-06-01/2023-12-31\")\narr\n```\n",
+            "fused:explorerPin": "14"
+          },
+          "source": "Sentinel1_Tile_Example.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Vegetation_Segmentation_H3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 258,
+                "pickable": true
+              },
+              "hexLayer": {
+                "coverage": 1,
+                "opacity": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": false,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[0, 255, 0]",
+                "getElevation": "@@=properties.metric",
+                "elevationScale": 4
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "Vegetation_Segmentation_H3",
+            "fused:name": "Vegetation_Segmentation_H3",
+            "fused:id": "e4650624-9554-41f6-9934-bbf38e9d2b4f",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 44.97618066163263,
+              "longitude": -93.26381603257326,
+              "zoom": 13.93314700686846,
+              "pitch": 0,
+              "bearing": 0
+            }
+          },
+          "source": "Vegetation_Segmentation_H3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

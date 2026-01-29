@@ -1,0 +1,84 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Walking_Distances_From_Coffee_Shops_by_Building_Bushwick_BK",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.698167460046434,
+              "longitude": -73.92280528847257,
+              "zoom": 14.294509753338033,
+              "pitch": 60,
+              "bearing": 0
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 0.5,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "coffee_cnt",
+                  "present": "@@=properties.coffee_cnt",
+                  "absent": 1
+                },
+                "elevationScale": 30,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "coffee_cnt",
+                  "domain": [
+                    0,
+                    25
+                  ],
+                  "colors": "BrwnYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "Walking_Distances_From_Coffee_Shops_by_Building_Bushwick_BK",
+            "fused:name": "Walking_Distances_From_Coffee_Shops_by_Building_Bushwick_BK",
+            "fused:id": "c56fbd38-b341-4442-b5fd-162cc3c3ab74"
+          },
+          "source": "Walking_Distances_From_Coffee_Shops_by_Building_Bushwick_BK.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

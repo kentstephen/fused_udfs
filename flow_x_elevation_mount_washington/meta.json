@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "flow_x_elevation_mount_washington",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "flow_x_elevation_mount_washington",
+            "fused:slug": "flow_x_elevation_mount_washington",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 44.28070665480322,
+              "longitude": -71.25916840043139,
+              "zoom": 11.893162276913891,
+              "pitch": 59.79661016949152,
+              "bearing": -113.17098765432098
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 14,
+                "tileSize": 256,
+                "extrude": true,
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "e_f",
+                  "domain": [
+                    15000,
+                    500
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFilColor": "@@=[properties.metric*1, properties.metric*0.3, properties.metric*0.1]",
+                "getElevation": "@@=properties.elev",
+                "elevationScale": 2.5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "8a696b1a-f7a3-4b96-b4f7-1d5fe3d8a2a7"
+          },
+          "source": "flow_x_elevation_mount_washington.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

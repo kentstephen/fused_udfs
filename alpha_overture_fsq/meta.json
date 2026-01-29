@@ -1,0 +1,55 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "alpha_overture_fsq",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "height",
+                  "present": "@@=properties.height",
+                  "absent": 1
+                },
+                "elevationScale": 10,
+                "getFillColor": "@@=[255, 215, 0, properties.cnt]"
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "alpha_overture_fsq",
+            "fused:name": "alpha_overture_fsq"
+          },
+          "source": "alpha_overture_fsq.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

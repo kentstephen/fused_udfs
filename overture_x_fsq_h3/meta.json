@@ -1,0 +1,101 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_x_fsq_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "coverage": 1,
+                "opacity": 10,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "height",
+                  "present": "@@=properties.height",
+                  "absent": 1
+                },
+                "elevationScale": 20,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b, 10]",
+                  "absent": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "hasProp",
+                  "property": "poi_categories",
+                  "present": {
+                    "@@function": "colorCategories",
+                    "attr": "poi_categories",
+                    "domain": [
+                      "Dining and Drinking",
+                      "Business and Professional Services",
+                      "Retail",
+                      "NA",
+                      "Travel and Transportation",
+                      "Community and Government",
+                      "Arts and Entertainment",
+                      "Landmarks and Outdoors",
+                      "Health and Medicine",
+                      "Sports and Recreation",
+                      "Event"
+                    ],
+                    "colors": "Prism"
+                  },
+                  "absent": [
+                    0,
+                    0,
+                    0,
+                    0
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "overture_x_fsq_h3",
+            "fused:name": "overture_x_fsq_h3",
+            "fused:id": "1fdcd006-2597-4aa2-8f60-81232f0b6170"
+          },
+          "source": "overture_x_fsq_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

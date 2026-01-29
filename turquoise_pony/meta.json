@@ -1,0 +1,51 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "turquoise_pony",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getFillColor": "@@=[properties.agg_band1, properties.agg_band2, properties.agg_band3, 200]",
+                "getElevation": "@@=properties.height",
+                "elevationScale": 5
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "turquoise_pony",
+            "fused:name": "turquoise_pony",
+            "fused:id": "ce551afb-3eb8-463c-8587-aa49aa0aa773"
+          },
+          "source": "turquoise_pony.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

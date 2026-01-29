@@ -1,0 +1,74 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "join_address_overture_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "collectionMeta": {
+              "join_pois_with_overture_copy": {
+                "position": 10
+              }
+            },
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 0.47,
+                "pointRadiusMinPixels": 1,
+                "getPointRadius": 1,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "postcode",
+                  "domain": [
+                    10001,
+                    15000
+                  ],
+                  "steps": 10,
+                  "colors": "Bold",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                }
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "join_address_overture_h3",
+            "fused:name": "join_address_overture_h3",
+            "fused:id": "9565b454-6ea1-4c60-9e72-620e56e56cd7"
+          },
+          "source": "join_address_overture_h3.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_h3_dem_walla_walla",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 1,
+                "coverage": 1,
+                "@@type": "H3HexagonLayer",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metrc",
+                  "domain": [
+                    200,
+                    900
+                  ],
+                  "steps": 25,
+                  "colors": "Sunset",
+                  "nullColor": [
+                    200,
+                    250,
+                    0
+                  ]
+                },
+                "getFllColor": [
+                  250,
+                  215,
+                  0,
+                  150
+                ],
+                "getLineColor": [
+                  200,
+                  215,
+                  0,
+                  250
+                ],
+                "getElevation": "@@=properties.elevation",
+                "elevationScale": 21
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "overture_buildings_h3_dem_walla_walla",
+            "fused:name": "overture_buildings_h3_dem_walla_walla",
+            "fused:defaultViewState": {
+              "enable": false,
+              "latitude": 46.07438022472746,
+              "longitude": -118.40765258733397,
+              "zoom": 9.087286351998165,
+              "pitch": 10,
+              "bearing": 67.55
+            }
+          },
+          "source": "overture_buildings_h3_dem_walla_walla.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

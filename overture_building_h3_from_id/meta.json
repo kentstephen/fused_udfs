@@ -1,0 +1,75 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_building_h3_from_id",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "@@type": "H3HexagonLayer",
+                "getHexagon": "@@=properties.hex",
+                "stroked": false,
+                "filled": true,
+                "pickable": true,
+                "opacity": 0.7,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getElevation": {
+                  "@@function": "hasProp",
+                  "property": "height",
+                  "present": "@@=properties.height",
+                  "absent": 1
+                },
+                "elevationScale": 2,
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "height",
+                  "domain": [
+                    0,
+                    70000
+                  ],
+                  "colors": "PinkYl",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:slug": "overture_building_h3_from_id",
+            "fused:name": "overture_building_h3_from_id"
+          },
+          "source": "overture_building_h3_from_id.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

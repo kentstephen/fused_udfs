@@ -1,0 +1,107 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "ndvi_sentinel_hex_dem_2_nyc_neighborhood_boundaries_buildings",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "extruded": true,
+                "opacity": 0.09,
+                "lineWidthMinPixels": 3.51,
+                "pointRadiusMinPixels": 2,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    5,
+                    0.1
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "metric",
+                  "domain": [
+                    5,
+                    0.1
+                  ],
+                  "steps": 50,
+                  "colors": "Emrld",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getElevation": "@@=properties.height",
+                "elevationScale": 2
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:slug": "ndvi_sentinel_hex_dem_2_nyc_neighborhood_boundaries_buildings",
+            "fused:name": "ndvi_sentinel_hex_dem_2_nyc_neighborhood_boundaries_buildings",
+            "fused:defaultParameters": [],
+            "fused:datasets": "Sentinel 2",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Sentinel_Tile_Example.png",
+            "fused:tags": [
+              {
+                "id": "usgs",
+                "label": "usgs"
+              },
+              {
+                "id": "hillshade",
+                "label": "hillshade"
+              }
+            ],
+            "fused:description": "### Overview [link](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\nThe [Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) program provides global imagery in thirteen spectral bands at 10m-60m resolution and a revisit time of approximately five days. This dataset represents the global Sentinel-2 archive, from 2016 to the present, processed to L2A (bottom-of-atmosphere) using Sen2Cor and converted to cloud-optimized GeoTIFF format.\n\n### External links\n* [Reference](https://planetarycomputer.microsoft.com/dataset/sentinel-2-l2a)\n* [AWS Earth Search STAC](https://earth-search.aws.element84.com/v1/collections/sentinel-2-l2a)\n* [Microsoft Planetary Computer STAC](https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Sentinel_Tile_Example\")\narr = fused.run(udf, x=5241, y=12667, z=15)\narr\n```\n",
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 0,
+              "longitude": 0,
+              "zoom": 0,
+              "pitch": 0,
+              "bearing": 0
+            }
+          },
+          "source": "ndvi_sentinel_hex_dem_2_nyc_neighborhood_boundaries_buildings.py",
+          "headers": [
+            {
+              "module_name": "utils",
+              "source_file": "utils.py"
+            }
+          ]
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

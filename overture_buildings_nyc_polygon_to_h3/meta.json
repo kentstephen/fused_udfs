@@ -1,0 +1,52 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "overture_buildings_nyc_polygon_to_h3",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "overture_buildings_nyc_polygon_to_h3",
+            "fused:slug": "overture_buildings_nyc_polygon_to_h3",
+            "fused:userCreatedShareToken": "fsh_7EiRMtV3XKj72UYGqS0Psg",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "hexLayer": {
+                "opacity": 5,
+                "@@type": "H3HexagonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "getHexagon": "@@=properties.hex",
+                "getFillColor": "@@=[properties.cnt/3+200, properties.cnt/5+50, properties.cnt/20]",
+                "getElevation": "@@=properties.cnt",
+                "elevationScale": 0.05
+              }
+            },
+            "fused:udfType": "vector_tile",
+            "fused:id": "be4c7c73-27ac-42d9-99c6-55f5484d23b9"
+          },
+          "source": "overture_buildings_nyc_polygon_to_h3.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

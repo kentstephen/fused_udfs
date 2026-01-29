@@ -1,0 +1,5 @@
+# USGS_snake_river_oct_2025_sub_numpy_for_pandas_2
+
+Read a GeoTIFF image file.
+
+

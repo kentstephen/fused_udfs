@@ -1,0 +1,64 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "fsq_isochrone_gdf_bushwick_coffee_file",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "opacity": 0.2,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    255,
+                    0,
+                    100
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  50
+                ]
+              }
+            },
+            "fused:udfType": "vector_single",
+            "fused:slug": "fsq_isochrone_gdf_bushwick_coffee_file",
+            "fused:name": "fsq_isochrone_gdf_bushwick_coffee_file",
+            "fused:id": "c59d7bcf-57f8-4a5d-9f9c-3ced85fa8bb9"
+          },
+          "source": "fsq_isochrone_gdf_bushwick_coffee_file.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

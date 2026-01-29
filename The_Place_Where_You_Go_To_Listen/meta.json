@@ -1,0 +1,73 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "The_Place_Where_You_Go_To_Listen",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:name": "The_Place_Where_You_Go_To_Listen",
+            "fused:slug": "The_Place_Where_You_Go_To_Listen",
+            "fused:description": "# The Place Where You Go to Listen\n\nAn interactive sonification of real-time geophysical data, inspired by John Luther Adams' installation at the University of Alaska Museum of the North.\n\n## About\n\nThis web application transforms live Earth data into continuous sound and color:\n- **Seismic activity** from earthquakes detected by USGS\n- **Aurora intensity** from NOAA's geomagnetic monitoring\n- **Solar position** calculated from longitude and time of day\n- **Seasonal cycles** throughout the year\n\n## How It Works\n\n**Sound (C Major Harmonic Structure):**\n- Deep bass C2 (65.41 Hz): Local earthquakes within 500km\n- Perfect fifth G3 (196 Hz): Regional earthquakes within 2000km  \n- Major third E4 (329.63 Hz): Largest earthquake globally today\n- C-E-G chord (523-784 Hz): Aurora borealis/australis with gentle shimmer\n- Subtle noise texture: Solar brightness\n\nThe audio uses fixed harmonic relationships (C major pentatonic) with data-driven volumes and modulation depth, creating a generative musical experience that responds to real-time geophysical conditions.\n\n**Visual:**\n- Radial gradient color field that shifts based on combined data\n- Warm tones during day, cooler at night\n- Blue-violet shifts during aurora activity\n- Orange-red intensity during seismic events\n\n## Usage\n\n1. Select a location from the dropdown menu\n2. Click \"Listen\" to start the experience (30-second audio loop generated from current data)\n3. Change locations to hear how different parts of the world sound\n4. Click \"Stop\" to pause\n\n## Technical Details\n\n- Server-side audio generation (WAV format)\n- Real-time data from USGS Earthquake API and NOAA Space Weather\n- Solar calculations adjusted for longitude to reflect actual local sun position\n- All data normalized 0-1 for consistent sonification\n\n## Credits\n\nInspired by [John Luther Adams](https://www.johnlutheradams.net/)' \"[The Place Where You Go to Listen](https://www.uaf.edu/museum/exhibits/galleries/the-place-where-you-go-to/)\"\n\nData sources: USGS Earthquake API, NOAA Space Weather\n\nBuilt with [Fused.io](https://www.fused.io)",
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer",
+                "pickable": true
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": false,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "pointRadiusMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "colorContinuous",
+                  "attr": "value",
+                  "domain": [
+                    0,
+                    10
+                  ],
+                  "steps": 20,
+                  "colors": "Mint",
+                  "nullColor": [
+                    184,
+                    184,
+                    184
+                  ]
+                },
+                "getFillColor": [
+                  208,
+                  208,
+                  208,
+                  40
+                ]
+              }
+            },
+            "fused:udfType": "auto",
+            "fused:gitRepo": "fusedio/udfs",
+            "fused:gitPath": "community/stephenkentdata/The_Place_Where_You_Go_To_Listen",
+            "fused:gitRef": "69167caec564b6f9c71ab31695c509163a4bbad0",
+            "fused:gitUrl": "https://github.com/fusedio/udfs/tree/69167caec564b6f9c71ab31695c509163a4bbad0/community/stephenkentdata/The_Place_Where_You_Go_To_Listen/",
+            "fused:id": "5278816b-74e8-4fa0-9a1c-d6df5918286a"
+          },
+          "source": "The_Place_Where_You_Go_To_Listen.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}

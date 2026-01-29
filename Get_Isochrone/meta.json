@@ -1,0 +1,115 @@
+{
+  "version": "0.0.3",
+  "job_config": {
+    "version": "0.0.3",
+    "name": null,
+    "steps": [
+      {
+        "type": "udf",
+        "udf": {
+          "type": "geopandas_v2",
+          "name": "Get_Isochrone",
+          "entrypoint": "udf",
+          "parameters": {},
+          "metadata": {
+            "fused:vizConfig": {
+              "tileLayer": {
+                "@@type": "TileLayer",
+                "minZoom": 0,
+                "maxZoom": 19,
+                "tileSize": 256,
+                "pickable": true
+              },
+              "rasterLayer": {
+                "@@type": "BitmapLayer"
+              },
+              "vectorLayer": {
+                "@@type": "GeoJsonLayer",
+                "stroked": true,
+                "filled": true,
+                "pickable": true,
+                "lineWidthMinPixels": 1,
+                "getLineColor": {
+                  "@@function": "hasProp",
+                  "property": "r",
+                  "present": "@@=[properties.r, properties.g, properties.b]",
+                  "absent": [
+                    255,
+                    255,
+                    0,
+                    100
+                  ]
+                },
+                "getFillColor": [
+                  255,
+                  0,
+                  0,
+                  50
+                ]
+              }
+            },
+            "fused:udfType": "vector_single_none",
+            "fused:slug": "Get_Isochrone",
+            "fused:name": "Get_Isochrone",
+            "fused:defaultParameters": [
+              {
+                "parameter": "costing",
+                "value": "[\"auto\", \"pedestrian\", \"bicycle\", \"truck\", \"bus\", \"motor_scooter\"]",
+                "suggestedValues": [
+                  "auto",
+                  "bicycle",
+                  "truck",
+                  "motor_scooter",
+                  "pedestrian",
+                  "bus"
+                ]
+              }
+            ],
+            "fused:defaultViewState": {
+              "enable": true,
+              "latitude": 40.80720563114003,
+              "longitude": -73.84687500006956,
+              "zoom": 8.74116447522721,
+              "pitch": 0,
+              "bearing": 0
+            },
+            "fused:gitShortUrl": "https://github.com/fusedio/udfs/tree/e2c8fc7/community/max/Get_Isochrone/",
+            "fused:gitPath": "community/max/Get_Isochrone",
+            "fused:gitRef": "e2c8fc7bf22f5263c2216a1216c7a7fb90774c28",
+            "fused:assetUrl": "https://fused-magic.s3.us-west-2.amazonaws.com/thumbnails/udfs-staging/Get_Isochrone.png",
+            "fused:tags": [
+              {
+                "id": "isochrone",
+                "label": "isochrone"
+              },
+              {
+                "id": "valhalla",
+                "label": "valhalla"
+              }
+            ],
+            "fused:description": "# Overview\n\nThis UDF is using Valhalla API to create an isochrone. Valhalla, an open-source routing engine, and its accompanying libraries are designed for OpenStreetMap data, offering features such as time+distance matrix computation, isochrones, elevation sampling, map matching, and tour optimization (Travelling Salesman).\n\n# External links\n\n- [Valhalla Github repo](https://github.com/valhalla/valhalla)\n\n## Run this in any Jupyter Notebook\n\n```python\nimport fused\n\nudf = fused.load(\"https://github.com/fusedio/udfs/tree/main/public/Get_Isochrone\")\ngdf = fused.run(udf=udf)\ngdf\n```\n",
+            "fused:explorerPin": "10",
+            "fused:gitAuthorNames": [
+              null
+            ],
+            "fused:gitAuthorUsernames": [
+              "fused-io-unstable[bot]"
+            ],
+            "fused:gitAuthorUrls": [
+              "https://github.com/apps/fused-io-unstable"
+            ],
+            "fused:gitAuthorAvatarUrls": [
+              "https://avatars.githubusercontent.com/in/1140406?v=4"
+            ],
+            "fused:gitLastModified": "2025-10-14T08:38:52+00:00",
+            "fused:explorerTab": "self",
+            "fused:gitRepo": "fusedio/udfs"
+          },
+          "source": "Get_Isochrone.py",
+          "headers": []
+        }
+      }
+    ],
+    "metadata": null
+  }
+}
