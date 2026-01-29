@@ -21,7 +21,7 @@ def udf(bbox: fused.types.TileGDF=None,
             print(f"Error processing point ({point.x}, {point.y}): {str(e)}")
             return gpd.GeoDataFrame(geometry=[], crs="EPSG:4326")
             
-    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/c_and_o/iosochrones")
+    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/c_and_o/iosochrones")
     def get_pool_isochrones(df, costing, time_steps):
         # Run the isochrone requests concurrently
         if len(df) == 0:

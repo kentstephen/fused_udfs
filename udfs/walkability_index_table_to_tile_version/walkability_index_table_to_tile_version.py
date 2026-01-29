@@ -45,12 +45,12 @@ def udf(bbox: fused.types.TileGDF = None, resolution: int = 10):
     # Fetch the data within the bounding box
     gdf = table_to_tile(bbox=bbox, data=walk_df)
 
-    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
     def total_score(walk_df):
         # Return the 'walk_score' column directly from the GeoDataFrame
         return walk_df["walk_score"]
     
-    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
     def get_global_boundaries(walk_df):
         # Use the walk_score column directly to compute boundaries
         min_score = walk_df["walk_score"].min()

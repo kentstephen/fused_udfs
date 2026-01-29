@@ -10,7 +10,7 @@ def udf(bbox: fused.types.TileGDF = None, release: str = "2024-09-18-0", theme: 
     # return gdf
     # @fused.cache
     def get_cabs():
-        cab_udf = fused.load("stephen.kent.data@gmail.com/DuckDB_H3_Example_for_nyc_builidngs")
+        cab_udf = fused.load("<your-email>/DuckDB_H3_Example_for_nyc_builidngs")
         df = fused.run(udf=cab_udf, resolution=resolution, min_count=min_count)
         return df
 

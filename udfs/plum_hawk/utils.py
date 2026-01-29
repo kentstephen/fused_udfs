@@ -23,7 +23,7 @@ def get_overture(bbox):
     gdf = gpd.GeoDataFrame(index=[0], crs='EPSG:4326', geometry=[polygon])
     
     # Load the UDF and run it with the bbox GeoDataFrame
-    udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example")
+    udf = fused.load("<your-email>/Overture_Maps_Example")
     overture = fused.run(udf=udf, bbox=gdf)
     
     # Convert the geometry column to WKT

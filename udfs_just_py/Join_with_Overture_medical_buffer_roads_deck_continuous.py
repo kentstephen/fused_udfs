@@ -19,7 +19,7 @@ def udf(
     }
     
     try:
-        hos_udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example_hospital")
+        hos_udf = fused.load("<your-email>/Overture_Maps_Example_hospital")
         gdf = fused.run(
             hos_udf,
             theme="base",

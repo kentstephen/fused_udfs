@@ -17,6 +17,6 @@ def udf(roi_wkt = '{"type": "FeatureCollection", "features": [{"id": "0", "type"
     # print(frames_all.shape)
     return df
 ## how to use: 
-# df = fused.utils.run_file("stephen.kent.data@gmail.com", "geos_18_async", )
+# df = fused.utils.run_file("<your-email>", "geos_18_async", )
 # arr = df['arr'].apply(lambda x: x.reshape(df['shape'][0]))[0]
 # return array

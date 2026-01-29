@@ -21,7 +21,7 @@ def udf(
     import shapely
     import xarray
     from shapely.geometry import Polygon
-    veg_udf = fused.load("stephen.kent.data@gmail.com/Vegetation_Segmentation")
+    veg_udf = fused.load("<your-email>/Vegetation_Segmentation")
     arr = fused.run(udf=veg_udf, bbox=bbox, return_mask=True)
     # print(type(arr))
     print("Dataset dimensions:", arr.dims)

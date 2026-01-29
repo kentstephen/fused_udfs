@@ -8,7 +8,7 @@ def udf(bbox: fused.types.TileGDF=None,
     from utils import get_con
     from shapely import wkt
   
-    overture_udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example")
+    overture_udf = fused.load("<your-email>/Overture_Maps_Example")
     gdf_overture = fused.run(
         overture_udf,
         release="2024-09-18-0",

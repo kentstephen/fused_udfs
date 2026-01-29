@@ -68,7 +68,7 @@ from to_points
 group by cell_id"""
     df_seg_hex = con.sql(query).df()
     # print(df_seg_hex)
-    area_udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example_h3_area")
+    area_udf = fused.load("<your-email>/Overture_Maps_Example_h3_area")
     df_buildings = fused.run(udf=area_udf, bbox=bbox, resolution=resolution, min_zoom=0)
     
     query_2 = """

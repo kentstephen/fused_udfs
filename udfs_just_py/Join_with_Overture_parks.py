@@ -18,7 +18,7 @@ def udf(
         "division_boundary": "divisions",
     }
     try:
-        park_udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example_parks")
+        park_udf = fused.load("<your-email>/Overture_Maps_Example_parks")
         gdf = fused.run(
         park_udf,
         theme="base",

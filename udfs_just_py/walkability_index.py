@@ -37,11 +37,11 @@ def udf(bbox: fused.types.TileGDF=None, resolutionn: int=10):
     # print(gdf)
     # gdf_overture = fused.utils.Overture_Maps_Example.get_overture(bbox=bbox, use_columns=['height'], min_zoom=10)
     # gdf_joined = gdf_overture.sjoin(gdf, how="inner", predicate="intersects")
-    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
     def total_score(walk_df):
         return duckdb.sql('select walk_score from walk_df').df()
     
-    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+    @fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
     def get_global_boundaries(walk_df):
         # Get all scores
         df_total_score = total_score(walk_df)

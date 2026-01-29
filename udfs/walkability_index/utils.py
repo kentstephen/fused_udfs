@@ -1,4 +1,4 @@
-@fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+@fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
 def get_data():
     import geopandas as gpd
     url = "/vsizip//vsicurl/https://edg.epa.gov/EPADataCommons/public/OA/WalkabilityIndex.zip/Natl_WI.gdb"
@@ -7,7 +7,7 @@ def get_data():
         gdf = gdf.to_crs("EPSG:4326")
     print(gdf)
     return gdf
-@fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/stephen.kent.data@gmail.com/walkability_index/")
+@fused.cache(path="s3://fused-users/stephenkentdata/fused-cache/<your-email>/walkability_index/")
 def get_walk_data():
     import pandas as pd
     import pyarrow as pa

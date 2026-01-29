@@ -72,7 +72,7 @@ SELECT
     df_seg_hex = con.sql(query).df()
     
     print(df_seg_hex)
-    # area_udf = fused.load("stephen.kent.data@gmail.com/Overture_Maps_Example_h3_area")
+    # area_udf = fused.load("<your-email>/Overture_Maps_Example_h3_area")
     df_buildings = fused.run("fsh_n9X8mjt010iI9KnMVPx84", bbox=bbox, resolution=resolution, min_zoom=0)
     
     query_2 = """
