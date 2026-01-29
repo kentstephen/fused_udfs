@@ -12,6 +12,12 @@ Includes:
 - DEM terrain analysis                                                        
                                                                             
 
+## Note
+
+- Any tokens or API keys referenced in these UDFs won't work
+- Data stored in my personal Fused object storage won't be accessible
+- Be careful with the Zarr UDFs - they may reference unavailable data sources
+
 ## Folders
 
 - [udfs](./udfs) - Unzipped UDFs for browsing
