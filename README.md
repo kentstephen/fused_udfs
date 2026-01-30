@@ -10,7 +10,7 @@ These are Fused UDFs I have worked on so far since April of 2024.
 Includes:                                                             
 - Overture Maps building footprints                                           
 - Sentinel satellite imagery processing                                       
-- H3 hexagon aggregations                                                     
+- H3 hexagon aggregations with DuckDB and the [H3 community extension](https://github.com/isaacbrodsky/h3-duckdb)                                                   
 - DEM terrain analysis                                                        
                                                                             
 
