@@ -26,4 +26,4 @@ Includes:
 - [udfs_just_py](./udfs_just_py) - Just the Python files 
 - [udfs_zipped](./udfs_zipped) - Zip files for uploading directly into Fused
 
- Older UDFs will refer to a `utils.py` that was deprecated in order to keep all the code in the main Python file. You would need to reactivate utils in the setttings to gain access to that file in Fused. If the UDFs have `utils.py` included they would available in [udfs](./udfs) and [udfs_zipped](./udfs_zipped).
+ Older UDFs will refer to a `utils.py` that was deprecated in order to keep all the code in the main Python file. You would need to reactivate utils in the setttings to gain access to that file in Fused. If the UDFs use the `utils.py` they should be available in [udfs](./udfs) and [udfs_zipped](./udfs_zipped).
