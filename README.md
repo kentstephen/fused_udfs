@@ -5,7 +5,7 @@ serverless geospatial compute and analysis.
 
 ![alt text](https://github.com/kentstephen/fused_udfs/blob/main/img/white_mountains_h3.jpg)
 
-These are UDFs I have worked on since April of 2024.
+These are Fused UDFs I have worked on so far since April of 2024.
 
 Includes:                                                             
 - Overture Maps building footprints                                           
