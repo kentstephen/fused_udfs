@@ -1,7 +1,9 @@
 # Fused.io UDFs Collection                                                    
-                                                                            
+                                                                    
 700+ User Defined Functions for [Fused.io](https://fused.io) - a platform for 
 serverless geospatial compute and analysis.
+
+![alt text](.img/white_mountains_h3.jpg)
 
 These are UDFs I have worked on since April of 2024.
 
